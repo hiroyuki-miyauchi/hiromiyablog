@@ -1,0 +1,171 @@
+.browsingHistory {
+  margin: 30px auto;
+
+  &-frontPage { /* トップページのみ調整 */
+    margin: 30px auto 0;
+  }
+
+  &_inner {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: $white;
+    padding: 25px 30px 15px;
+
+    &-noTitle { /* タイトルが必要ない時の調整 */
+      padding: 15px 30px 15px;
+    }
+
+    &-frontPage { /* トップページのみ調整 */
+      max-width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  &_title {
+    color: #333;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    padding-bottom: 10px;
+  }
+
+  &_listBox {
+  }
+
+  &_list {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    padding: 15px 0;
+    
+    &:not(:first-child) {
+      border-top: 1px solid #ddd;
+    }
+  }
+
+  &_link {
+    display: inline-block;
+    &:hover {
+    }
+  }
+
+  &_imageBox {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 50px;
+    height: auto;
+  }
+
+  &_image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &_textBox {
+    padding: 0 0 0 65px;
+  }
+
+  &_textTitle {
+    font-size: 16px;
+    padding: 0 0 0 0;
+  }
+
+  &_text {
+    padding: 0 0 5px 0;
+  }
+
+  &_textDate,
+  &_textCategory {
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: .15em;
+    margin: 0 8px 0 0;
+  }
+
+  &_textDate {
+    color: #666;
+    font-size: 12px;
+  }
+
+  &_textCategory {
+    color: $topics;
+    font-size: 11px;
+    border: 1px solid $topics;
+    padding: 4px 8px;
+  }
+
+  &_readMore {
+    padding: 10px 0 15px 0;
+  }
+
+  &_readMoreLink {
+    display: block;
+    width: 100%;
+    max-width: 210px;
+    height: 36px;
+    color: #333;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: .1em;
+    text-align: center;
+    background-color: $white;
+    border-radius: 18px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px 0 rgba(40,49,53,0.1);
+    padding: 0 20px;
+    margin: 0 auto;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      background-color: rgba($mainColor, 0.6);
+    }
+  }
+
+  &_notes {
+    color: #b3b3b3;
+    font-size: 12px;
+    line-height: 1.4;
+    text-indent: -1em;
+    padding: 0 0 15px 1em;
+  }
+}
+
+@media #{$smartphone} {
+  .browsingHistory {
+    &_inner {
+      padding: 20px 15px 5px;
+    }
+
+    &_title {
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+
+    &_textBox {
+      padding: 0 0 0 60px;
+    }
+
+    &_textTitle {
+      font-size: 14px;
+    }
+
+    &_inner {
+      &-noTitle { /* タイトルが必要ない時の調整 */
+        padding: 0 15px 0;
+      }
+
+      &-frontPage { /* トップページのみ調整 */
+        max-width: 100%;
+      }
+    }
+
+    &_readMore {
+      padding: 5px 0 20px 0;
+    }
+  }
+}

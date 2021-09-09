@@ -1,0 +1,166 @@
+@charset "utf-8";
+@import "_config";
+
+@import "base/_mixin";
+
+@import "components/_content";
+@import "components/_main";
+@import "components/_sec";
+@import "components/_title";
+@import "components/_contact";
+@import "components/_btn";
+@import "components/_pageTop";
+@import "components/_pageNav";
+
+/*------------------------------
+ mixin
+------------------------------*/
+@mixin clearfix($color: #fff, $fSize: 16px) {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+@mixin hoge($color: #fff, $fSize: 16px) {
+  color: $color;
+  font-size: $fSize;
+}
+
+/*------------------------------
+ header
+------------------------------*/
+.profile {
+  &_header {
+    padding-top: 50px;
+    margin-bottom: 30px;
+  }
+  &_headerTitle {
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    span {
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+  &_desc {
+    text-align: center;
+  }
+  &_descText {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  /* body
+  ------------------------------*/
+  &_body {
+  }
+  &_inner {
+  }
+  &_content {
+    width: 100%;
+    height: auto;
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    margin-bottom: 40px;
+    &::after {
+      @include clearfix(); // 引数は初期値のを使用
+    }
+  }
+  &_imageBox {
+    float: left;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &_image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &_textBox {
+    float: left;
+    padding-left: 20px;
+  }
+  &_title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &_text {
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+}
+
+.sec_btn {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/*----------------------------------------
+ max-width: 767px
+----------------------------------------*/
+@media only screen and (max-width: 767px) {
+  /*------------------------------
+   wrapper
+  ------------------------------*/
+  #wrapper {
+    //padding-top: 60px; /* 固定header対策 */
+  }
+
+  /*------------------------------
+   header
+  ------------------------------*/
+  .profile {
+    &_header {
+      padding-top: 30px;
+    }
+    &_headerTitle {
+      margin-bottom: 10px;
+    }
+    &_desc {
+    }
+    &_descText {
+      font-size: 16px;
+    }
+    /* body
+    ------------------------------*/
+    &_body {
+    }
+    &_inner {
+    }
+    &_content {
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    &_imageBox {
+      float: none;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    &_image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    &_textBox {
+      float: none;
+      padding-left: 0;
+    }
+    &_title {
+      margin-bottom: 10px;
+    }
+    &_text {
+      font-size: 14px;
+    }
+  }
+
+}

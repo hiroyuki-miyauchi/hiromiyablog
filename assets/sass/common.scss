@@ -1,0 +1,124 @@
+@charset "utf-8";
+@import "_config";
+
+@import "base/_colors";
+@import "base/_mixin";
+@import "base/_class";
+@import "base/_type";
+
+@import "layouts/_header";
+@import "layouts/_gnav";
+@import "layouts/_slideNav";
+@import "layouts/_footer";
+@import "layouts/_fixedNavigation";
+@import "components/_pageTop";
+
+/*------------------------------
+ wrapper
+------------------------------*/
+#wrapper {
+  width: 100%;
+  height: auto;
+}
+
+/*------------------------------
+ breadcrumb
+------------------------------*/
+.breadcrumb {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/*------------------------------
+ content
+------------------------------*/
+.category {
+  &_list {
+    margin-bottom: 30px;
+  }
+}
+
+/*------------------------------
+ relatedArticle
+------------------------------*/
+.relatedArticle {
+  &_inner {
+    padding: 50px 0 50px 0;
+  }
+  &_title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+/*------------------------------
+ pagenavi
+------------------------------*/
+.wp-pagenavi {
+  padding: 30px 0;
+}
+.wp-pagenavi a,
+.wp-pagenavi span {
+  display: inline-block;
+}
+
+/*----------------------------------------
+ SP（max-width: 767px）
+----------------------------------------*/
+@media #{$smartphone} {
+/*------------------------------
+ 一時調整用（あとで整理）
+------------------------------*/
+.form .form_row {
+  display: block;
+}
+.form .form_row .form_label {
+  display: block;
+  width: 100%;
+}
+.form .form_row .form_content {
+  width: 100%;
+}
+
+/*------------------------------
+ wrapper
+------------------------------*/
+#wrapper {
+  // padding-top: 50px; /* 固定header対策 */
+}
+
+/*------------------------------
+ content
+------------------------------*/
+.category {
+  &_list {
+    margin-bottom: 0;
+  }
+}
+
+/*------------------------------
+  mainVisual
+------------------------------*/
+.mainVisual {
+  &_item {
+  }
+  &_desc {
+    width: 80%;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+/*------------------------------
+ relatedArticle
+------------------------------*/
+.relatedArticle {
+  &_inner {
+  }
+  &_title {
+    font-size: 22px;
+  }
+}
+
+}

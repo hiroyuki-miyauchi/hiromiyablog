@@ -1,0 +1,46 @@
+.search {
+  display: block;
+  position: relative;
+
+  &_keywordInput {
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid #2f3237;
+    border-radius: 5px;
+    padding: 10px 34px 10px 10px;
+
+    &::placeholder {
+      color: rgba(#2f3237, 0.3);
+    }
+  }
+
+  &_icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #2f3237;
+    cursor: pointer;
+
+    &:before {
+      content: "\f002";
+    }
+  }
+}
+
+@media #{$smartphone} {
+  .search {
+    display: block;
+    position: relative;
+  
+    &_keywordInput {
+      width: 100%;
+      font-size: 14px;
+      padding: 20px 40px 20px 15px;
+    }
+  
+    &_icon {
+      top: 20px;
+      right: 15px;
+    }
+  }
+}

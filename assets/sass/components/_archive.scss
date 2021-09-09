@@ -1,0 +1,112 @@
+body {
+  .archive {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .archive_title {
+      @include fs(16);
+      padding: 20px 10px;
+      line-height: 1;
+      border-top: 3px solid #2f3237;
+      border-bottom: 1px solid $light-gray;
+      background: -webkit-linear-gradient(top, #fff, #fafafa);
+    }
+
+    .archive_list {
+      li {
+        margin: 0;
+        border-bottom: 1px solid $light-gray;
+        line-height: 1;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+          position: relative;
+          line-height: 1;
+          transition: 0.3s all 0s ease;
+          padding: 20px 22px 20px 10px;
+
+          &:after {
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            display: block;
+            margin-top: -0.5em;
+            @include fs(14);
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            color: #bbb;
+          }
+
+          &:hover {
+            background-color: rgba($mainColor, 0.1);
+          }
+        }
+      }
+    }
+
+    &.tags {
+      .tags_listBox {
+        padding: 15px 0 0 0;
+      }
+      .tags_list {
+        display: inline-block;
+        border: none;
+        padding: 0;
+        margin: auto 5px 5px auto;
+
+        a.tags_link {
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0;
+          background-color: #dddddd;
+          padding: 10px 15px;
+          border-radius: 20px;
+          box-shadow: 0 4px 10px 0 rgba(40,49,53,0.1);
+          transition: 0s all 0s ease;
+    
+          &::after {
+            display: none;
+          }
+
+          &:hover {
+            color: $white;
+            background-color: rgba($mainColor, 0.6);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$smartphone} {
+  body {
+    .archive {
+      &.tags {
+        .tags_listBox {
+        }
+        .tags_list {
+  
+          a.tags_link {
+            padding: 15px 20px;
+      
+            &::after {
+            }
+  
+            &:hover {
+            }
+          }
+        }
+      }
+    }
+  }
+}

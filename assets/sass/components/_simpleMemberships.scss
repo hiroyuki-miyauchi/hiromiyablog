@@ -1,0 +1,932 @@
+/*-------------------------------------------------------
+ 会員サイト構築用プラグイン「Simple Membership」デザイン調整用
+-------------------------------------------------------*/
+
+/*------------------------------
+ ログインフォーム（ログイン前）
+------------------------------*/
+.swpm-login-widget-form {
+  border: 1px solid #ccc;
+  border-top: 3px solid #2f3237;
+  white-space: nowrap;
+  padding: 15px;
+  overflow-x: scroll;
+
+  .swpm-username-label {
+    white-space: normal;
+  }
+}
+
+#swpm-login-form {
+}
+
+.swpm-login-form-inner {
+}
+
+.swpm-username-label,
+.swpm-password-label {
+  margin-bottom: 5px;
+}
+
+.swpm-label {
+  font-size: 14px;
+}
+
+.swpm-username-input,
+.swpm-password-input {
+}
+
+#swpm-login-form .swpm-text-field {
+  width: 100%;
+  font-size: 12px;
+  background-color: $white;
+  border: 1px solid $c-border;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.swpm-text-field .swpm-username-field {
+}
+
+.swpm-text-field .swpm-password-field {
+}
+
+.swpm-remember-me {
+  display: table;
+  margin-bottom: 15px;
+}
+
+.swpm-remember-checkbox {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.swpm-remember-checkbox input {
+  display: block;
+}
+
+.swpm-rember-label {
+  display: table-cell;
+  font-size: 12px;
+  vertical-align: middle;
+  padding: 0 5px;
+}
+
+.swpm-before-login-submit-section {
+}
+
+.swpm-login-submit {
+}
+
+.swpm-login-submit .swpm-login-form-submit {
+  display: block;
+  width: 100%;
+  color: $white;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background-color: $mainColor;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.swpm-forgot-pass-link {
+  margin-bottom: 5px;
+}
+
+.swpm-login-form-pw-reset-link,
+.swpm-login-form-register-link {
+  color: #0073aa;
+  font-size: 12px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.swpm-join-us-link {
+}
+
+.swpm-login-action-msg {
+  margin-top: 5px;
+}
+
+.swpm-login-widget-action-msg {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+
+/*------------------------------
+ ログインフォーム（ログイン後）
+------------------------------*/
+.swpm-login-widget-logged {
+  border: 1px solid #ccc;
+  border-top: 3px solid #2f3237;
+  white-space: nowrap;
+  padding: 15px;
+}
+
+.swpm-logged-username {
+}
+
+.swpm-logged-username-label {
+}
+
+.swpm-logged-label {
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.swpm-logged-value {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.swpm-logged-username-value {
+}
+
+.swpm-logged-status {
+}
+
+.swpm-logged-status-label {
+}
+
+.swpm-logged-status-value {
+}
+
+.swpm-logged-membership {
+}
+
+.swpm-logged-membership-label {
+}
+
+.swpm-logged-membership-value {
+}
+
+.swpm-logged-expiry {
+}
+
+.swpm-logged-expiry-label {
+}
+
+.swpm-logged-expiry-value {
+}
+
+.swpm-edit-profile-link {
+  margin-bottom: 5px;
+}
+
+.swpm-logged-logout-link {
+}
+
+.swpm-edit-profile-link a,
+.swpm-logged-logout-link a {
+  color: #0073aa;
+  font-size: 12px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+/*------------------------------
+ 会員登録フォーム
+------------------------------*/
+.lang:default,
+.decode:true {
+}
+
+.swpm-registration-widget-form {
+  font-size: 0; /* 余計な余白の対策 */
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#swpm-registration-form {
+
+  label {
+    display: inline-block;
+
+    &.text_label {
+      font-weight: 700;
+    }
+  }
+
+  input:not(#accept_pt):not(.swpm-registration-submit) {
+    width: 100%;
+    font-size: 12px;
+    background-color: $white;
+    border: 1px solid $c-border;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  table {
+    font-family: $serif;
+    margin-bottom: 50px;
+
+    .swpm-registration-membership-level-row {
+
+      td:last-child {
+        text-align: center;
+      }
+    }
+  }
+
+  tbody {
+  }
+
+  td {
+    min-height: auto;
+    vertical-align: middle;
+    padding: 0 0 20px 0;
+
+    &.membership_levelTitle {
+      padding: 10px 0 10px 0;
+    }
+
+    &.membership_levelText {
+      font-size: 12px;
+      text-align: center;
+      background-color: #f2f2f2;
+      // border: 1px solid #707070;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    &.privacyBox {
+      padding: 30px 0 30px;
+    }
+  }
+}
+
+.swpm-validate-form{
+}
+
+.swpm-registration-username-row {
+}
+
+#swpm-registration-form label[for="user_name"],
+#swpm-registration-form label[for="email"],
+#swpm-registration-form label[for="password"],
+#swpm-registration-form label[for="password_re"],
+#swpm-registration-form label[for="first_name"],
+#swpm-registration-form label[for="last_name"],
+#swpm-registration-form label[for="membership_level"] {
+}
+
+#user_name {
+}
+
+#email {
+}
+
+#password {
+}
+
+#password_re {
+}
+
+#first_name {
+}
+
+#last_name {
+}
+
+#accept_pt {
+}
+
+#accept_pt + a {
+}
+
+.swpm-before-registration-submit-section {
+}
+
+.swpm-registration-submit-section {
+}
+
+.swpm-registration-submit {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  color: $white;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background-color: $mainColor;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 0 auto;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/*------------------------------
+ プロフィール編集ページ
+------------------------------*/
+.swpm-edit-profile-form {
+}
+
+#swpm-editprofile-form {
+  font-size: 0; /* 余計な余白の対策 */
+  line-height: 1;
+  white-space: nowrap;
+
+  label {
+    display: inline-block;
+    cursor: default;
+  }
+
+  input:not(.swpm-edit-profile-submit) {
+    width: 100%;
+    font-size: 12px;
+    background-color: $white;
+    border: 1px solid $c-border;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  table {
+    font-family: $serif;
+    margin-bottom: 50px;
+
+    tr {
+    }
+
+    td {
+      min-height: auto;
+      vertical-align: middle;
+      padding: 0 0 20px 0;
+    }
+  }
+
+  #countryLabelBox {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 14px;
+      margin: auto 0;
+      height: 0;
+      width: 0;
+      border-top: 6px solid #333;
+      border-left: 6px solid rgba(51, 51, 51, 0);
+      border-right: 6px solid rgba(51, 51, 51, 0);
+    }
+  }
+}
+
+#swpm_profile_edit_nonce_val {
+}
+
+.swpm-profile-username-row {
+}
+
+.swpm-profile-email-row {
+
+  #email {
+  }
+}
+
+.swpm-profile-password-row {
+
+  #password {
+  }
+}
+
+.swpm-profile-password-retype-row {
+
+  #password_re {
+  }
+}
+
+.swpm-profile-firstname-row {
+
+  #first_name {
+  }
+}
+
+.swpm-profile-lastname-row {
+
+  #last_name {
+  }
+}
+
+.swpm-profile-phone-row {
+
+  #phone {
+  }
+}
+
+.swpm-profile-street-row {
+
+  #address_street {
+  }
+}
+
+.swpm-profile-city-row {
+
+  #address_city {
+  }
+}
+
+.swpm-profile-state-row {
+
+  #address_state{
+  }
+}
+
+.swpm-profile-zipcode-row {
+
+  #address_zipcode {
+  }
+}
+
+.swpm-profile-country-row {
+
+  select#country {
+    width: 100%;
+    font-size: 12px;
+    background-color: $white;
+    border: 1px solid $c-border;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+
+    option {
+    }
+  }
+}
+
+.swpm-profile-company-row {
+
+  #company_name {
+  }
+}
+
+.swpm-profile-membership-level-row {
+
+  td:last-child {
+    text-align: center;
+  }
+}
+
+.swpm-edit-profile-submit-section {
+
+  .swpm-edit-profile-submit {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    color: $white;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    background-color: $mainColor;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.swpm-profile-account-delete-section {
+  margin: 50px auto 30px;
+
+  a {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    color: $white;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    // background-color: $mainColor;
+    background-color: #f2f2f2;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .swpm-account-delete-button {
+    color: #a6a6a6;
+  }
+}
+
+/*------------------------------
+ パスワードリセットフォーム
+------------------------------*/
+#swpm_message {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.swpm-reset-pw-error,
+.swpm-pw-reset-widget-form {
+  line-height: 1;
+}
+
+.swpm-pw-reset-widget-form {
+  font-size: 0; /* 余計な余白の対策 */
+  white-space: nowrap;
+}
+
+#swpm-pw-reset-form {
+  font-family: $serif;
+}
+
+.swpm-pw-reset-widget-inside {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  @include clearfix;
+
+  .swpm-pw-reset-email,
+  .swpm-pw-reset-email-input {
+    float: left;
+  }
+
+  .swpm-pw-reset-email {
+    width: 22%;
+    min-width: 120px;
+    padding: 11px 15px 0 0;
+    margin: 0;
+  }
+
+  .swpm-pw-reset-email-input {
+    width: 78%;
+    margin: 0 auto 30px;
+  }
+
+  .swpm-before-login-submit-section {
+    margin: 0;
+  }
+  
+  .swpm-pw-reset-submit-button {
+    margin: 0;
+  }
+}
+
+.swpm_label.swpm-pw-reset-email-label {
+  display: block;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+.swpm-text-field.swpm-pw-reset-text {
+  width: 100%;
+  font-size: 12px;
+  background-color: $white;
+  border: 1px solid $c-border;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.swpm-pw-reset-submit {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  color: $white;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background-color: $mainColor;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 0 auto;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/*------------------------------
+ 「Google Chome」のオートコンプリート背景色対策
+------------------------------*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+@media #{$smartphone} {
+  /*------------------------------
+   会員登録フォーム
+  ------------------------------*/
+  .swpm-registration-widget-form {
+    line-height: 1;
+  }
+
+  #swpm-registration-form {
+
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    table {
+      position: relative;
+      padding-top: 15px;
+      margin-bottom: 20px;
+      overflow-y: scroll;
+
+      tr {
+        padding: 0 0 20px 0;
+      }
+
+      td {
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+
+        .membership_levelTitle {
+          padding: 0;
+        }
+
+        .privacyBox {
+          padding: 15px 0 0;
+        }
+
+        label {
+          font-weight: 700;
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+    input:not(#accept_pt):not(.swpm-registration-submit) {
+    }
+  }
+
+  .swpm-validate-form{
+  }
+
+  #swpm-registration-form label[for="user_name"],
+  #swpm-registration-form label[for="email"],
+  #swpm-registration-form label[for="password"],
+  #swpm-registration-form label[for="password_re"],
+  #swpm-registration-form label[for="first_name"],
+  #swpm-registration-form label[for="last_name"],
+  #swpm-registration-form label[for="membership_level"] {
+  }
+
+  #user_name {
+  }
+
+  #email {
+  }
+
+  #password {
+  }
+
+  #password_re {
+  }
+
+  #first_name {
+  }
+
+  #last_name {
+  }
+
+  #accept_pt {
+  }
+
+  #accept_pt + a {
+  }
+
+  .swpm-before-registration-submit-section {
+  }
+
+  .swpm-registration-submit-section {
+  }
+
+  .swpm-registration-submit {
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  /*------------------------------
+   プロフィール編集ページ
+  ------------------------------*/
+  .swpm-edit-profile-form {
+    line-height: 1;
+  }
+
+  #swpm-editprofile-form {
+
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    label {
+      font-weight: 700;
+      padding-bottom: 10px;
+    }
+
+    input:not(.swpm-edit-profile-submit) {
+    }
+
+    table {
+      position: relative;
+      padding-top: 15px;
+      overflow-y: scroll;
+
+      tr {
+        padding: 0 0 20px 0;
+      }
+
+      td {
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  #swpm_profile_edit_nonce_val {
+  }
+
+  .swpm-profile-username-row {
+  }
+
+  .swpm-profile-email-row {
+
+    #email {
+    }
+  }
+
+  .swpm-profile-password-row {
+
+    #password {
+    }
+  }
+
+  .swpm-profile-password-retype-row {
+
+    #password_re {
+    }
+  }
+
+  .swpm-profile-firstname-row {
+
+    #first_name {
+    }
+  }
+
+  .swpm-profile-lastname-row {
+
+    #last_name {
+    }
+  }
+
+  .swpm-profile-phone-row {
+
+    #phone {
+    }
+  }
+
+  .swpm-profile-street-row {
+
+    #address_street {
+    }
+  }
+
+  .swpm-profile-city-row {
+
+    #address_city {
+    }
+  }
+
+  .swpm-profile-state-row {
+
+    #address_state{
+    }
+  }
+
+  .swpm-profile-zipcode-row {
+
+    #address_zipcode {
+    }
+  }
+
+  .swpm-profile-country-row {
+
+    td {
+
+      &:last-child::before {
+      }
+    }
+
+    select#country {
+
+      option {
+      }
+    }
+  }
+
+  .swpm-profile-company-row {
+
+    #company_name {
+    }
+  }
+
+  .swpm-profile-membership-level-row {
+  }
+
+  .swpm-edit-profile-submit-section {
+
+    .swpm-edit-profile-submit {
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .swpm-profile-account-delete-section {
+
+    a {
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .swpm-account-delete-button {
+    }
+  }
+
+  /*------------------------------
+  パスワードリセットフォーム
+  ------------------------------*/
+  .swpm-pw-reset-widget-inside {
+
+    .swpm-pw-reset-email,
+    .swpm-pw-reset-email-input {
+      float: none;
+    }
+
+    .swpm-pw-reset-email {
+      width: 100%;
+      min-width: 100%;
+      padding: 0 0 0 0;
+      margin: 0 auto 10px;
+    }
+  }
+
+  .swpm_label.swpm-pw-reset-email-label {
+    display: block;
+    font-size: 14px;
+    min-height: auto;
+  }
+
+  .swpm-pw-reset-widget-inside .swpm-pw-reset-email-input {
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+
+  .swpm-pw-reset-submit {
+    max-width: 220px;
+  }
+}
