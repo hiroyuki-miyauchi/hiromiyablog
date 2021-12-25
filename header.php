@@ -26,6 +26,7 @@ wp_enqueue_style('hiromiyablog-common', get_template_directory_uri() . '/assets/
 if ( is_home() ) { // homeのみ読み込み
   wp_enqueue_style('hiromiyablog-home', get_template_directory_uri() . '/assets/css/home.min.css', array(), '1.0.0');
 } else if ( is_page('profile') ) { // profileのみ読み込み
+  wp_enqueue_style('hiromiyablog-contents', get_template_directory_uri() . '/assets/css/contents.min.css', array(), '1.0.0');
   wp_enqueue_style('hiromiyablog-profile', get_template_directory_uri() . '/assets/css/profile.min.css', array(), '1.0.0');
 } else { // 「home」や「profile」以外の全ページ読み込み
   wp_enqueue_style('hiromiyablog-contents', get_template_directory_uri() . '/assets/css/contents.min.css', array(), '1.0.0');
@@ -75,7 +76,7 @@ wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/cs
     </ul>
 
     <?php if ( is_home() ) : // homeのみ読み込み ?>
-    <div class="header_search">	
+    <div class="header_search" style="display: none;">	
     <?php get_search_form(); // 検索フォームを読み込む ?>	
     </div>	
     <?php endif; ?>
