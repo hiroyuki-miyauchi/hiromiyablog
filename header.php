@@ -74,6 +74,12 @@ wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/cs
       <li class="header_snsList"><a href="https://www.instagram.com/hiromiyablog/" target="_blank" rel="noopener noreferrer" class="header_snsLink"><i class="fab fa-instagram"></i></a></li>
     </ul>
 
+    <?php if ( is_home() ) : // homeのみ読み込み ?>
+    <div class="header_search">	
+    <?php get_search_form(); // 検索フォームを読み込む ?>	
+    </div>	
+    <?php endif; ?>
+
     <?php //get_search_form(); // 検索フォームを読み込む ?>
   </div>
 
