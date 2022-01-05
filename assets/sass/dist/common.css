@@ -482,13 +482,6 @@ img.max {
 body {
   color: #333;
   font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
 }
 
 .font-normal {
@@ -1437,6 +1430,7 @@ ul p {
 #wrapper {
   width: 100%;
   height: auto;
+  word-break: break-all;
 }
 
 /*------------------------------

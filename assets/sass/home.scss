@@ -90,6 +90,42 @@ a.bnr {
   display: inline-block;
 }
 
+/*------------------------------
+ tags
+------------------------------*/
+.tags {
+  .tags_listBox {
+    text-align: center;
+  }
+  .tags_list {
+    display: inline-block;
+    margin: auto 10px 10px auto;
+
+    a.tags_link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+      background-color: #dddddd;
+      padding: 10px 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px 0 rgba(40,49,53,0.1);
+      transition: 0s all 0s ease;
+
+      &::after {
+        display: none;
+      }
+
+      &:hover {
+        color: $white;
+        text-decoration: none;
+        background-color: rgba($mainColor, 0.6);
+      }
+    }
+  }
+}
+
 /*----------------------------------------
  max-width: 767px
 ----------------------------------------*/

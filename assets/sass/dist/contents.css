@@ -2166,6 +2166,7 @@
 }
 .content ul.listStyleNone {
   list-style: none;
+  padding: 0.5em 1.5em 0.5em 1.5em;
 }
 .content ol {
   list-style: decimal;
