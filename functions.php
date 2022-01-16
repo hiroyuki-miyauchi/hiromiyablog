@@ -463,4 +463,81 @@ function my_pre_get_posts($query) {
 }
 add_action( 'pre_get_posts', 'my_pre_get_posts' );
 
+
+/**
+ * 外部リンク対応ブログカードを自作用プラグインの実装
+ * Github「https://github.com/scottmac/opengraph/」
+ * 関連ファイル「OpenGraph.php」
+ * 参考URL「https://dis-play.net/wordpress/tips/blogcard-external/」
+ * 
+ * 【使い方】
+ * ・通常：[sc_Linkcard url="リンク先URL"]
+ * ・個別に文言を入れたいケース：[sc_Linkcard url="https://haqu.jp/" title="任意のタイトル名" excerpt="任意の説明文"]
+ */
+
+/**
+ * 外部リンク対応ブログカードのショートコードを作成
+ */
+/* 外部リンク対応ブログカードのショートコードを作成 */
+function show_Linkcard($atts) {
+  extract(shortcode_atts(array(
+    'url'=>"",
+    'title'=>"",
+    'excerpt'=>""
+  ),$atts));
+
+  // 画像サイズの横幅を指定
+  $img_width ="100";
+  // 画像サイズの高さを指定
+  $img_height = "100";
+
+  // OGP情報を取得
+  require_once 'OpenGraph.php';
+  $graph = OpenGraph::fetch($url);
+
+  // OGPタグからタイトルを取得
+  $Link_title = $graph->title;
+  if (!empty($title)) {
+    $Link_title = $title; // title=""の入力がある場合はそちらを優先
+  }
+
+  // OGPタグからdescriptionを取得（抜粋文として利用）
+  $Link_description = wp_trim_words($graph->description, 200, '…' ); // 文字数は任意で変更
+  if (!empty($excerpt)) {
+    $Link_description = $excerpt; // 値を取得できない時は手動でexcerpt=""を入力
+  }
+
+  // wordpress.comのAPIを利用してスクリーンショットを取得
+  $screenShot = 'https://s.wordpress.com/mshots/v1/'. urlencode(esc_url(rtrim( $url, '/' ))) .'?w='. $img_width .'&h='.$img_height.'';
+  // スクリーンショットを表示
+  $xLink_img = '<img class="blogCard__thumbnailImage" src="'. $screenShot .'" width="'. $img_width .'" />';
+
+  // ファビコンを取得（GoogleのAPIでスクレイピング）
+  $host = parse_url($url)['host'];
+  $searchFavcon = 'https://www.google.com/s2/favicons?domain='.$host;
+  if ($searchFavcon) {
+    $favicon = '<img class="blogCard__favicon" src="'.$searchFavcon.'">';
+  }
+
+  // 外部リンク用ブログカードHTML出力
+  $sc_Linkcard .='
+  <div class="blogCard">
+    <a class="blogCard__linkBox" href="'. $url .'" target="_blank">
+      <div class="blogCard__thumbnail">'. $xLink_img .'</div>
+      <dl class="blogCard__content">
+        <dt class="blogCard__title">'. $Link_title .'</dt>
+        <dd class="blogCard__textBox">
+          <p class="blogCard__excerpt">'. $Link_description .'</p>
+          <p class="blogCard__linkText">'. $favicon .' '. $url .'<i class="blogCard__linkIcon"></i></p>
+        </dd>
+      </dl>
+    </a>
+  </div>';
+
+  return $sc_Linkcard;
+}
+
+// ショートコードに追加
+add_shortcode("sc_Linkcard", "show_Linkcard");
+
 ?>
