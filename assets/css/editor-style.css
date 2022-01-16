@@ -2554,6 +2554,7 @@ ul {
 }
 ul.listStyleNone {
   list-style: none;
+  padding: 0.5em 1.5em 0.5em 1.5em;
 }
 
 ol {
@@ -2747,6 +2748,7 @@ iframe.googlemap {
   background-color: rgba(32, 47, 85, 0.9);
 }
 
+/* Gutenberg */
 .alignwide {
   margin-left: calc( -100vw / 2 + 100% / 2 );
   margin-right: calc( -100vw / 2 + 100% / 2 );
@@ -2777,6 +2779,79 @@ iframe.googlemap {
   background-color: rgba(32, 47, 85, 0.9);
 }
 
+/* 外部リンク対応ブログカード */
+.blogCard {
+  line-height: 1;
+  word-wrap: break-word;
+  margin: 20px 10px;
+}
+.blogCard noscript {
+  display: none;
+}
+.blogCard__linkBox {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 142px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #eeeeee;
+  background-color: rgba(32, 47, 85, 0.03);
+  box-shadow: 0 4px 10px 0 rgba(40, 49, 53, 0.1);
+  border-radius: 9px;
+  transition: all 0.2s ease;
+  padding: 20px;
+}
+.blogCard__linkBox:hover {
+  border: 1px solid #202f55;
+  box-shadow: 0 6px 10px 0 rgba(40, 49, 53, 0.3);
+}
+.blogCard__linkBox::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.blogCard__thumbnail {
+  float: left;
+  padding: 0 20px 0 0;
+}
+.blogCard__content {
+  padding-left: 120px;
+}
+.blogCard__favicon {
+  max-width: 100%;
+  height: auto;
+}
+.blogCard__title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.blogCard__excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.85em;
+  line-height: 1.6;
+  padding: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.blogCard__linkText {
+  color: #0073aa;
+  font-size: 0.65em;
+  text-align: left;
+  text-indent: -2em;
+  padding: 0 0 0 2em;
+  margin: 0;
+}
+.blogCard__linkIcon {
+  display: none;
+}
 /*------------------------------
  サイズ別
 ------------------------------*/
@@ -2815,7 +2890,27 @@ iframe.googlemap {
   }
   .associateDetailsButton_list:not(:first-child) {
     margin-top: 15px;
-    margin-left: 0;
+    margin-left: 800px;
+  }
+  /* 外部リンク対応ブログカード */
+  .blogCard {
+    margin: 15px 0;
+  }
+  .blogCard__linkBox {
+    padding: 15px;
+  }
+  .blogCard__thumbnail {
+    width: 90px;
+    padding: 0 15px 0 0;
+  }
+  .blogCard__content {
+    padding-left: 0;
+  }
+  .blogCard__title {
+    font-size: 0.95em;
+  }
+  .blogCard__excerpt {
+    margin-bottom: 10px;
   }
 }
 /*------------------------------

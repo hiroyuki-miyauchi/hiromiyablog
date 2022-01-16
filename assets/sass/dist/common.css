@@ -1431,6 +1431,7 @@ ul p {
   width: 100%;
   height: auto;
   word-break: break-all;
+  overflow: hidden;
 }
 
 /*------------------------------
