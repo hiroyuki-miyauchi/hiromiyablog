@@ -30,17 +30,22 @@ jQuery(function($) {
   });
 
   // ページ内遷移
-  $('a[href^="#"]').on('click', function(){
+  $('a[href^="#"]').on('click', function(e){
     var speed = 500;
-    var href= $(this).attr('href');
-    var target = $(href == '#' || href == '' ? 'html' : href);
+    var href = $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
     var position = target.offset().top;
-    if (window.innerWidth < 768) {
-      //$('html, body').animate({scrollTop:position - (document.querySelectorAll('header')[0].offsetHeight)}, speed, "swing"); // SP時
-      $('html, body').animate({scrollTop:position}, speed, 'swing'); // SP時
-    } else {
-      $('html, body').animate({scrollTop:position}, speed, 'swing'); // PC時
-    }
+
+    $.when( // lazylord（画像遅延読み込み）対策S
+      $("html, body").animate({scrollTop: position}, speed, "swing"),
+      e.preventDefault(),
+    ).done(function() {
+      var diff = target.offset().top;
+      if (diff === position) {
+      } else {
+        $("html, body").animate({scrollTop: diff}, 10, "swing");
+      }
+    });
     return false;
   });
 
