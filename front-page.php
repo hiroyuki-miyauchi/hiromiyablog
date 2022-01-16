@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <!-- <section class="sec bg-gray">
+  <section class="sec bg-gray">
     <div class="container">
       <header class="sec_header">
         <h2 class="title">次回予告<span>NEXT TIME PREVIEW</span></h2>
@@ -55,36 +55,36 @@
       <div class="nextTimePreview">
         <ul class="nextTimePreview_inner">
         <?php
-          //$args = array(
-            //'post_type'      => 'post', // 投稿タイプの指定、post（投稿）・page（固定ページ）・revision（履歴）・pnav_menu_item（ナビゲーションメニュー）・カスタム投稿タイプ（任意のカスタム投稿タイプ名）
-            //'post_status'    => array( 'draft', 'pending', 'future' ), // 投稿ステータスの指定、publish（公開された投稿もしくは固定ページ）・pending（レビュー待ちの投稿）・draft（下書きの投稿）・auto-draft（コンテンツのない、新規作成された投稿）・future（予約公開設定された投稿）・private（ログインしていないユーザーからは見えない投稿）・inherit（リビジョン：履歴）・trash（ゴミ箱に入った投稿）・any（'trash' と 'auto-draft' を除き、すべてのステータスの投稿）
-            //'cat' => array( -1, -3 ), // カテゴリーの指定（カテゴリIDを指定。省きたいものは -（マイナス）を付けて指定。）
+          $args = array(
+            'post_type'      => 'post', // 投稿タイプの指定、post（投稿）・page（固定ページ）・revision（履歴）・pnav_menu_item（ナビゲーションメニュー）・カスタム投稿タイプ（任意のカスタム投稿タイプ名）
+            'post_status'    => array( 'draft', 'pending', 'future' ), // 投稿ステータスの指定、publish（公開された投稿もしくは固定ページ）・pending（レビュー待ちの投稿）・draft（下書きの投稿）・auto-draft（コンテンツのない、新規作成された投稿）・future（予約公開設定された投稿）・private（ログインしていないユーザーからは見えない投稿）・inherit（リビジョン：履歴）・trash（ゴミ箱に入った投稿）・any（'trash' と 'auto-draft' を除き、すべてのステータスの投稿）
+            'cat' => array( -1, -3 ), // カテゴリーの指定（カテゴリIDを指定。省きたいものは -（マイナス）を付けて指定。）
             //'category_name' => 'info, code', // カテゴリーの指定（カテゴリスラッグを指定。, 区切りで指定するとそれらのいずれかを持つ投稿を、+ 区切りで指定するとそれら全てを持つ投稿を取得できる。）
             //'category__and' => array( 1, 6 ), // カテゴリーの指定（カテゴリIDを配列で指定。指定したIDのカテゴリをすべて含む投稿を取得できる。）
             //'category__in' => array( 1, 6 ), // カテゴリーの指定（カテゴリIDを配列で指定。指定したIDのカテゴリのいずれかを含む投稿を取得できる。）
             //'category__not_in' => array( 19, 23 ), // カテゴリーの指定（カテゴリIDを配列で指定。指定したIDのカテゴリを含まない投稿を取得できる。）
-            //'order'          => 'ASC', // 昇順（ASC） or 降順（DESC）の指定
-            //'orderby'        => 'date', // 何順で並べるかの指定、title（タイトル）・date（日付）・modified（更新日）・ID（投稿ID）・rand（ランダム）・comment_count（コメント数）・author（著者）
-            //'posts_per_page' => 3 // 取得する投稿数の指定（全件表示したい場合は-1を指定）
-          //);
-          //$the_query = new WP_Query( $args );
-          //if($the_query->have_posts()): // 現在のWordPressクエリにループできる記事があるかどうかをチェックする
+            'order'          => 'ASC', // 昇順（ASC） or 降順（DESC）の指定
+            'orderby'        => 'date', // 何順で並べるかの指定、title（タイトル）・date（日付）・modified（更新日）・ID（投稿ID）・rand（ランダム）・comment_count（コメント数）・author（著者）
+            'posts_per_page' => 3 // 取得する投稿数の指定（全件表示したい場合は-1を指定）
+          );
+          $the_query = new WP_Query( $args );
+          if($the_query->have_posts()): // 現在のWordPressクエリにループできる記事があるかどうかをチェックする
         ?>
-        <?php //while($the_query->have_posts()): $the_query->the_post(); ?>
-          <?php //get_template_part('template-parts/loop', 'nextTimePreview'); // ヘッダー、フッター、サイドバー以外の任意のテンプレートパーツを読み込む（引数１：一般テンプレートのスラッグ名（必須）、引数２：特定テンプレートの名前（省略可能）） ?>
-        <?php //endwhile; ?>
-        <?php //else: // 投稿データが取得できない場合の処理 ?>
+        <?php while($the_query->have_posts()): $the_query->the_post(); ?>
+          <?php get_template_part('template-parts/loop', 'nextTimePreview'); // ヘッダー、フッター、サイドバー以外の任意のテンプレートパーツを読み込む（引数１：一般テンプレートのスラッグ名（必須）、引数２：特定テンプレートの名前（省略可能）） ?>
+        <?php endwhile; ?>
+        <?php else: // 投稿データが取得できない場合の処理 ?>
           <li class="nextTimePreview_list">
             <p class="nextTimePreview_undecided">次回掲載予定の記事は現在未定です、予定決まり次第こちらに表記致します。</p>
           </li>
-        <?php //endif; wp_reset_postdata(); ?>
+        <?php endif; wp_reset_postdata(); ?>
         </ul>
       </div>
 
     </div>
-  </section> -->
+  </section>
 
-  <section class="sec bg-gray">
+  <section class="sec">
     <div class="container">
       <header class="sec_header">
         <h2 class="title">カテゴリー<span>CATEGORY</span></h2>
@@ -101,7 +101,7 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec bg-gray">
     <div class="container">
       <header class="sec_header">
         <h2 class="title">タグ一覧<span>TAG</span></h2>
@@ -126,7 +126,7 @@
     </div>
   </section>
 
-  <section class="sec bg-gray">
+  <section class="sec">
     <div class="container">
       <header class="sec_header">
         <h2 class="title">閲覧履歴<span>BROWSING HISTORY</span></h2>
@@ -140,7 +140,7 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec bg-gray">
     <div class="container">
       <header class="sec_header">
         <h2 class="title">サイト情報<span>INFORMATION</span></h2>

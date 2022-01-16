@@ -7,5 +7,5 @@
 </aside> -->
 <?php get_sidebar('latests'); // 現在のテーマディレクトリからサイドバーファイルを読み込む（引数１：パラメータがあった場合、sidebar-'パラメータ'.phpファイルを読み込む） ?>
 <?php get_sidebar('categories'); ?>
-<?php get_sidebar('archives'); ?>
 <?php get_sidebar('tags'); ?>
+<?php get_sidebar('archives'); ?>
