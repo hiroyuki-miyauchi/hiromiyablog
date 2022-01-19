@@ -10,7 +10,7 @@
   <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/img/home/main_visual.jpg" as="image">
 <?php else : // home以外読み込み ?>
   <?php if( get_field('keywords') ) : // カスタムフィールドの「keywords」があるか判定 ?>
-  <meta name="keywords" content="hiromiya,プログラミング,独学,初心者<?php the_field('keywords'); ?>">
+  <meta name="keywords" content="hiromiya,プログラミング,独学,初心者,<?php the_field('keywords'); ?>">
   <?php endif; ?>
   <?php if( get_the_post_thumbnail() ) : // アイキャッチ画像があるか判定 ?>
   <link rel="preload" href="<?php the_post_thumbnail_url(); // アイキャッチ画像のURLのみ取得 ?>" as="image">
