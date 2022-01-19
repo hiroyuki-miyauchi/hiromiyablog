@@ -482,6 +482,7 @@ img.max {
 body {
   color: #333;
   font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
+  font-weight: 500;
 }
 
 .font-normal {
