@@ -2503,14 +2503,18 @@ img {
 ------------------------------*/
 table {
   width: 100%;
+  word-break: normal;
 }
 table td,
 table th {
+  border: 1px solid #202f55;
   padding: 15px;
   vertical-align: top;
 }
 table th {
+  color: #202f55;
   font-weight: bold;
+  text-align: center;
 }
 
 /*------------------------------

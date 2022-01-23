@@ -18,7 +18,7 @@
 
 
 <!-- HTML -->
-<ul id="bxslider">
+<ul class="js-bxSlider">
   <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/programming.jpg" class="noLazyLoaded"></li>
   <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/profile.jpg" class="noLazyLoaded"></li>
   <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/main_visual.jpg" class="noLazyLoaded"></li>
@@ -35,7 +35,7 @@
 <script>
 // bxSlider
 $(document).ready(function () {
-  $('#bxslider').bxSlider({
+  $('.js-bxSlider').bxSlider({
     mode: 'horizontal', // スライド方法を設定「horizontal」横スライド、「vertical」 縦スライド、「fade」 フェードでの切り替え（初期値は‘horizontal’）
     speed: 500, // スライドするスピードの設定（初期値は500）
     slideMargin: 10, // 各スライド間の余白を設定（初期値は0）
