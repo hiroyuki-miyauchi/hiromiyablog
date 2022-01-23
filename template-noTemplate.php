@@ -11,45 +11,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="hiroyuki miyauchi">
-<?php if ( is_home() ) : // homeのみ読み込み ?>
-  <meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
-  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/img/home/main_visual.jpg" as="image">
-<?php else : // home以外読み込み ?>
-  <?php if( get_field('keywords') ) : // カスタムフィールドの「keywords」があるか判定 ?>
-  <meta name="keywords" content="hiromiya,プログラミング,独学,初心者<?php the_field('keywords'); ?>">
-  <?php endif; ?>
-  <?php if( get_the_post_thumbnail() ) : // アイキャッチ画像があるか判定 ?>
-  <link rel="preload" href="<?php the_post_thumbnail_url(); // アイキャッチ画像のURLのみ取得 ?>" as="image">
-  <?php endif; ?>
+<title><?php the_title(); ?></title>
+<?php if( get_field('keywords') ) : // カスタムフィールドの「keywords」があるか判定 ?>
+<meta name="keywords" content="hiromiya,プログラミング,独学,初心者,<?php the_field('keywords'); ?>">
+<?php else : ?>
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
 <?php endif; ?>
-
-<?php // CSS（全ページ読み込み）
-wp_enqueue_style('hiromiyablog-default', get_template_directory_uri() . '/assets/css/default.min.css', array(), '1.0.0');
-?>
-
-<?php wp_head(); // WordPressのプラグインなどの機能が使えなくなるので入れるのが推奨されている ?>
-
+<link rel="canonical" href="https://hiromiyablog.com/">
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&amp;ssl=1">
+<link rel='stylesheet' href='<?php echo get_template_directory_uri(); ?>/assets/css/default.min.css' type='text/css' media='all' />
 <?php if ( get_field('html_codes_head') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
 <?php the_field('html_codes_head') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
 <?php endif; ?>
 <?php if ( get_field('css_codes_head') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
 <?php the_field('css_codes_head') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
 <?php endif; ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <?php if ( get_field('javascript_codes_head') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
 <?php the_field('javascript_codes_head') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
 <?php endif; ?>
 </head>
-
-<body <?php body_class(); ?> >
-<?php wp_body_open(); // body要素の直後に何かを挿入する際に使用するwp_body_openアクションを実行する ?>
-
-<div id="wrapper">
-
+<body>
 
 <?php the_content(); // 記事の本文すべて、または一部を表示する（引数１：ページを分割したいときに表示される区切りの文字。省略時は（more…）が表示される、引数２：ページを分割するかどうか。trueで分割、falseで分割しない（省略時はfalse）、引数３：現バージョンでは使われていない） ?>
 
-
-<?php wp_footer(); // WordPressのプラグインなどの機能が使えなくなるので入れるのが推奨されている ?>
+<?php if ( get_field('html_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
+<?php the_field('html_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
+<?php endif; ?>
+<?php if ( get_field('css_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
+<?php the_field('css_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
+<?php endif; ?>
+<?php if ( get_field('javascript_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
+<?php the_field('javascript_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
+<?php endif; ?>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179107583-3"></script>
@@ -61,14 +58,5 @@ wp_enqueue_style('hiromiyablog-default', get_template_directory_uri() . '/assets
 </script>
 <!-- /Global site tag (gtag.js) - Google Analytics end -->
 
-<?php if ( get_field('html_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
-<?php the_field('html_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
-<?php endif; ?>
-<?php if ( get_field('css_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
-<?php the_field('css_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
-<?php endif; ?>
-<?php if ( get_field('javascript_codes_body') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
-<?php the_field('javascript_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
-<?php endif; ?>
 </body>
 </html>

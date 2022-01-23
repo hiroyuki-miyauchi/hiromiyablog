@@ -120,13 +120,17 @@ img {
 ------------------------------*/
 table {
   width: 100%;
+  word-break: normal;
   td,
   th{
+    border: 1px solid $mainColor;
     padding: 15px;
     vertical-align: top;
   }
   th{
+    color: $mainColor;
     font-weight: bold;
+    text-align: center;
   }
 }
 

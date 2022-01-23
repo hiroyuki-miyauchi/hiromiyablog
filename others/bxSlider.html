@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>bxSliderでカルーセル</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/">
+<link rel="stylesheet" id="hiromiyablog-default-css" href="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css" type="text/css" media="all">
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&amp;ssl=1">
+
+
+
+<!-- HTML -->
+<ul class="js-bxSlider">
+  <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/programming.jpg" class="noLazyLoaded"></li>
+  <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/profile.jpg" class="noLazyLoaded"></li>
+  <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/main_visual.jpg" class="noLazyLoaded"></li>
+  <li><img src="https://hiromiyablog.com/wp-content/uploads/2021/06/about.jpg" class="noLazyLoaded"></li>
+</ul>
+
+<!-- JS -->
+<link rel="stylesheet" href="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/libs/bxslider/css/jquery.bxslider.min.css">
+<!-- jQuery CDNの読み込み -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/libs/bxslider/js/jquery.bxslider.min.js"></script>
+
+<!-- 個別のjQueryコード -->
+<script>
+// bxSlider
+$(document).ready(function () {
+  $('.js-bxSlider').bxSlider({
+    mode: 'horizontal', // スライド方法を設定「horizontal」横スライド、「vertical」 縦スライド、「fade」 フェードでの切り替え（初期値は‘horizontal’）
+    speed: 500, // スライドするスピードの設定（初期値は500）
+    slideMargin: 10, // 各スライド間の余白を設定（初期値は0）
+    slideWidth: 450, // 各スライドの幅を指定（初期値は0）
+    minSlides: 3, // 一度に表示させる最小数を設定（初期値は1）
+    maxSlides: 3, // 一度に表示させる最大数を設定（初期値は1）
+    moveSlides: 1, // カルーセル表示のときに移動するスライド数の設定（初期値は0）
+    pager: true, // ページ送りを追加するかどうかの設定（初期値はtrue）
+    auto: false, // 自動スライドの設定（初期値はfalse）
+    pause: 4000, // 自動スライドの待ち時間の設定（初期値は4000　※単位ms）
+    autoHover: false, // スライダーにホバーしたときに自動スライドを停止させるかどうか設定（初期値はfalse）
+    autoDelay: 0 // 自動スライドを開始するまでの待ち時間の設定（初期値は0）
+  });
+});
+</script>
