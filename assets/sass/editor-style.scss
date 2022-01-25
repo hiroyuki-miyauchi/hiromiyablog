@@ -221,7 +221,7 @@ ol {
       width: 88px;
       height: auto;
       font-size: 14px;
-      font-weight: normal;
+      font-weight: 500;
       text-align: center;
       letter-spacing: 1px;
       background-color: $white;
@@ -524,6 +524,101 @@ iframe{
   }
 }
 
+/*------------------------------
+ Jetpack関連情報部分の調整
+------------------------------*/
+#jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  padding: 10px 5px 5px 5px;
+}
+
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-context, #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
+  padding: 0 5px 0 5px;
+}
+
+#jp-relatedposts h3.jp-relatedposts-headline {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+}
+
+#jp-relatedposts h3.jp-relatedposts-headline em:before {
+  display: none;
+}
+
+#jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post {
+  padding: 0 4px;
+}
+
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+  width: calc(33.33% - 7px);
+}
+
+/*------------------------------
+ wp block 調整用CSS
+------------------------------*/
+
+/* 画像＋テキストブロック */
+.wp-block-media-text {
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #942343;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgb(40 49 53 / 20%);
+  margin: 0 10px;
+  overflow: hidden;
+
+  @include clearfix;
+}
+
+.wp-block-media-text .wp-block-media-text__media{
+  float: left;
+  width: 30%;
+  height: auto;
+}
+
+.wp-block-media-text .wp-block-media-text__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wp-block-media-text .wp-block-media-text__content {
+  float: left;
+  width: 70%;
+  height: auto;
+  padding: 10px 15px 0px 15px;
+}
+
+.wp-block-media-text .wp-block-media-text__content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+
+/*------------------------------
+ Democracy Poll 調整用CSS
+------------------------------*/
+input.dem-add-answer-txt {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+/*------------------------------
+ HCBプラグイン 調整用CSS
+------------------------------*/
+.hcb_wrap .hcb-clipboard.-done:before {
+  min-width: 5em;
+  text-align: right;
+}
+
 
 /*------------------------------
  サイズ別
@@ -622,6 +717,36 @@ iframe{
     &__excerpt {
       margin-bottom: 10px;
     }
+  }
+
+  /*------------------------------
+   wp block 調整用CSS
+  ------------------------------*/
+
+  /* 画像＋テキストブロック */
+  .wp-block-media-text {
+    width: 100%;
+    margin: 0;
+  }
+
+  .wp-block-media-text .wp-block-media-text__media{
+    float: none;
+    width: 100%;
+  }
+
+  .wp-block-media-text .wp-block-media-text__media img {
+  }
+
+  .wp-block-media-text .wp-block-media-text__content {
+    float: none;
+    width: 100%;
+    padding: 12px 15px;
+  }
+
+  .wp-block-media-text .wp-block-media-text__content p {
+    font-size: 15px;
+    -webkit-line-clamp: 4;
+    padding: 0;
   }
 }
 

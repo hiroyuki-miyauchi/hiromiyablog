@@ -39,6 +39,19 @@
   /* もっと見るボタン（クリック時非表示コンテンツを表示） */
   /* 外部リンク対応ブログカード */
   /*------------------------------
+   Jetpack関連情報部分の調整
+  ------------------------------*/
+  /*------------------------------
+   wp block 調整用CSS
+  ------------------------------*/
+  /* 画像＋テキストブロック */
+  /*------------------------------
+   Democracy Poll 調整用CSS
+  ------------------------------*/
+  /*------------------------------
+   HCBプラグイン 調整用CSS
+  ------------------------------*/
+  /*------------------------------
    サイズ別
   ------------------------------*/
   /*------------------------------
@@ -2215,7 +2228,7 @@
   width: 88px;
   height: auto;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 500;
   text-align: center;
   letter-spacing: 1px;
   background-color: #fff;
@@ -2443,6 +2456,80 @@
 .content .blogCard__linkIcon {
   display: none;
 }
+.content #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  padding: 10px 5px 5px 5px;
+}
+.content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-context, .content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
+  padding: 0 5px 0 5px;
+}
+.content #jp-relatedposts h3.jp-relatedposts-headline {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+}
+.content #jp-relatedposts h3.jp-relatedposts-headline em:before {
+  display: none;
+}
+.content #jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post {
+  padding: 0 4px;
+}
+.content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+  width: calc(33.33% - 7px);
+}
+.content .wp-block-media-text {
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #942343;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgba(40, 49, 53, 0.2);
+  margin: 0 10px;
+  overflow: hidden;
+}
+.content .wp-block-media-text::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.content .wp-block-media-text .wp-block-media-text__media {
+  float: left;
+  width: 30%;
+  height: auto;
+}
+.content .wp-block-media-text .wp-block-media-text__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.content .wp-block-media-text .wp-block-media-text__content {
+  float: left;
+  width: 70%;
+  height: auto;
+  padding: 10px 15px 0px 15px;
+}
+.content .wp-block-media-text .wp-block-media-text__content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+.content input.dem-add-answer-txt {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+.content .hcb_wrap .hcb-clipboard.-done:before {
+  min-width: 5em;
+  text-align: right;
+}
 @media only screen and (min-width: 1200px) {
   .content .content iframe.googlemap {
     height: 450px;
@@ -2464,6 +2551,10 @@
     ------------------------------*/
     /* アソシエイトボタンセット */
     /* 外部リンク対応ブログカード */
+    /*------------------------------
+     wp block 調整用CSS
+    ------------------------------*/
+    /* 画像＋テキストブロック */
   }
   .content .content h2,
 .content .content h3,
@@ -2500,6 +2591,24 @@
   }
   .content .blogCard__excerpt {
     margin-bottom: 10px;
+  }
+  .content .wp-block-media-text {
+    width: 100%;
+    margin: 0;
+  }
+  .content .wp-block-media-text .wp-block-media-text__media {
+    float: none;
+    width: 100%;
+  }
+  .content .wp-block-media-text .wp-block-media-text__content {
+    float: none;
+    width: 100%;
+    padding: 12px 15px;
+  }
+  .content .wp-block-media-text .wp-block-media-text__content p {
+    font-size: 15px;
+    -webkit-line-clamp: 4;
+    padding: 0;
   }
 }
 @keyframes moreFadeIn {
