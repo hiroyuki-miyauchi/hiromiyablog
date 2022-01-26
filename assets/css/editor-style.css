@@ -2503,6 +2503,7 @@ img {
 ------------------------------*/
 table {
   width: 100%;
+  min-width: 768px;
   word-break: normal;
 }
 table td,
