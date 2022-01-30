@@ -879,6 +879,10 @@ a.bnr:hover {
 /*------------------------------
  tags
 ------------------------------*/
+.tags {
+  max-width: 70%;
+  margin: 0 auto;
+}
 .tags .tags_listBox {
   text-align: center;
 }
@@ -931,5 +935,12 @@ a.bnr:hover {
   }
   .pageTop {
     display: none;
+  }
+
+  /*------------------------------
+   tags
+  ------------------------------*/
+  .tags {
+    max-width: 100%;
   }
 }

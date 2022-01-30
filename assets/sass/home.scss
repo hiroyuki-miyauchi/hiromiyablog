@@ -94,6 +94,9 @@ a.bnr {
  tags
 ------------------------------*/
 .tags {
+  max-width: 70%;
+  margin: 0 auto;
+
   .tags_listBox {
     text-align: center;
   }
@@ -172,6 +175,13 @@ a.bnr {
 
   .pageTop {
     display: none;
+  }
+
+  /*------------------------------
+   tags
+  ------------------------------*/
+  .tags {
+    max-width: 100%;
   }
 
 }
