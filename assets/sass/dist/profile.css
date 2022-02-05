@@ -3,7 +3,6 @@
   font-size: 16px;
   max-width: 1024px;
   margin: 0 auto;
-  overflow: hidden;
   /*!
    * Bootstrap Grid v4.0.0 (https://getbootstrap.com)
    * Copyright 2011-2018 The Bootstrap Authors
@@ -36,7 +35,22 @@
   /* 区切り線 */
   /* アソシエイトコンテンツ */
   /* アソシエイトボタンセット */
+  /* Gutenberg */
   /* もっと見るボタン（クリック時非表示コンテンツを表示） */
+  /* 外部リンク対応ブログカード */
+  /*------------------------------
+   Jetpack関連情報部分の調整
+  ------------------------------*/
+  /*------------------------------
+   wp block 調整用CSS
+  ------------------------------*/
+  /* 画像＋テキストブロック */
+  /*------------------------------
+   Democracy Poll 調整用CSS
+  ------------------------------*/
+  /*------------------------------
+   HCBプラグイン 調整用CSS
+  ------------------------------*/
   /*------------------------------
    サイズ別
   ------------------------------*/
@@ -2120,14 +2134,19 @@
 }
 .content table {
   width: 100%;
+  min-width: 767px;
+  word-break: normal;
 }
 .content table td,
 .content table th {
+  border: 1px solid #202f55;
   padding: 15px;
   vertical-align: top;
 }
 .content table th {
+  color: #202f55;
   font-weight: bold;
+  text-align: center;
 }
 .content ul,
 .content ol {
@@ -2150,18 +2169,43 @@
   line-height: 1.5;
   padding: 0.5em 0;
 }
+.content ul li ul,
+.content ol li ul {
+  list-style: circle;
+  padding-left: 2em;
+  margin-left: 0;
+}
+.content ul li ul li,
+.content ol li ul li {
+  line-height: 1.2;
+  padding: 0.5em 0;
+}
 .content ul {
   list-style: disc;
 }
+.content ul.listStyleNone {
+  list-style: none;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+}
 .content ol {
   list-style: decimal;
+}
+.content ol.listStyleNone {
+  list-style: none;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+}
+.content ol.listStyleLowercaseLetters {
+  list-style: lower-alpha;
+}
+.content ol.listStyleUppercaseLetters {
+  list-style: upper-alpha;
 }
 .content .tableOfContents_title {
   position: relative;
   background-color: rgba(32, 47, 85, 0.03);
   border-style: double;
   /* 二重線 */
-  border-width: 4px 4px 4px 4px;
+  border-width: 4px 4px 0 4px;
   /* 二重線 太さ */
   border-color: #202f55;
   /* 二重線 色 */
@@ -2181,11 +2225,11 @@
   border-color: transparent transparent #942343 #942343;
   transform: rotate(135deg);
   margin-top: -3px; */
-  content: "開く";
+  content: "閉じる";
   width: 88px;
   height: auto;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 500;
   text-align: center;
   letter-spacing: 1px;
   background-color: #fff;
@@ -2195,13 +2239,13 @@
   margin-top: -17px;
 }
 .content .tableOfContents_title.close {
-  border-width: 4px 4px 0 4px;
+  border-width: 4px 4px 4px 4px;
   /* 二重線 太さ */
 }
 .content .tableOfContents_title.close::before {
   /* transform: rotate(315deg);
   margin-top: -16px; */
-  content: "閉じる";
+  content: "開く";
 }
 .content .tableOfContents_box {
   list-style: disc;
@@ -2221,19 +2265,6 @@
   border: none;
   padding: 0;
   transition: 0s height 0s ease;
-}
-.content .tableOfContents_box li {
-  line-height: 1.5;
-  padding: 0.5em 0 1em;
-}
-.content .tableOfContents_box li ul {
-  list-style: circle;
-  padding-left: 2em;
-  margin-left: 0;
-}
-.content .tableOfContents_box li ul li {
-  line-height: 1.2;
-  padding: 0.5em 0;
 }
 .content textarea {
   padding: 15px 10px;
@@ -2354,6 +2385,152 @@
 .content .moreButton:hover {
   background-color: rgba(32, 47, 85, 0.9);
 }
+.content .blogCard {
+  line-height: 1;
+  word-wrap: break-word;
+  margin: 20px 10px;
+}
+.content .blogCard noscript {
+  display: none;
+}
+.content .blogCard__linkBox {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 142px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #eeeeee;
+  background-color: rgba(32, 47, 85, 0.03);
+  box-shadow: 0 4px 10px 0 rgba(40, 49, 53, 0.1);
+  border-radius: 9px;
+  transition: all 0.2s ease;
+  padding: 20px;
+}
+.content .blogCard__linkBox:hover {
+  border: 1px solid #202f55;
+  box-shadow: 0 6px 10px 0 rgba(40, 49, 53, 0.3);
+}
+.content .blogCard__linkBox::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.content .blogCard__thumbnail {
+  float: left;
+  padding: 0 20px 0 0;
+}
+.content .blogCard__content {
+  padding-left: 120px;
+}
+.content .blogCard__favicon {
+  max-width: 100%;
+  height: auto;
+}
+.content .blogCard__title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.content .blogCard__excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.85em;
+  line-height: 1.6;
+  padding: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.content .blogCard__linkText {
+  color: #0073aa;
+  font-size: 0.65em;
+  text-align: left;
+  text-indent: -2em;
+  padding: 0 0 0 2em;
+  margin: 0;
+}
+.content .blogCard__linkIcon {
+  display: none;
+}
+.content #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  padding: 10px 5px 5px 5px;
+}
+.content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-context, .content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
+  padding: 0 5px 0 5px;
+}
+.content #jp-relatedposts h3.jp-relatedposts-headline {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+}
+.content #jp-relatedposts h3.jp-relatedposts-headline em:before {
+  display: none;
+}
+.content #jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post {
+  padding: 0 4px;
+}
+.content #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+  width: calc(33.33% - 7px);
+}
+.content .wp-block-media-text {
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #942343;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgba(40, 49, 53, 0.2);
+  margin: 0 10px;
+  overflow: hidden;
+}
+.content .wp-block-media-text::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+.content .wp-block-media-text .wp-block-media-text__media {
+  float: left;
+  width: 30%;
+  height: auto;
+}
+.content .wp-block-media-text .wp-block-media-text__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.content .wp-block-media-text .wp-block-media-text__content {
+  float: left;
+  width: 70%;
+  height: auto;
+  padding: 10px 15px 0px 15px;
+}
+.content .wp-block-media-text .wp-block-media-text__content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+.content input.dem-add-answer-txt {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+.content .hcb_wrap .hcb-clipboard.-done:before {
+  min-width: 5em;
+  text-align: right;
+}
 @media only screen and (min-width: 1200px) {
   .content .content iframe.googlemap {
     height: 450px;
@@ -2374,6 +2551,11 @@
     個別class
     ------------------------------*/
     /* アソシエイトボタンセット */
+    /* 外部リンク対応ブログカード */
+    /*------------------------------
+     wp block 調整用CSS
+    ------------------------------*/
+    /* 画像＋テキストブロック */
   }
   .content .content h2,
 .content .content h3,
@@ -2390,7 +2572,44 @@
   }
   .content .associateDetailsButton_list:not(:first-child) {
     margin-top: 15px;
-    margin-left: 0;
+    margin-left: 800px;
+  }
+  .content .blogCard {
+    margin: 15px 0;
+  }
+  .content .blogCard__linkBox {
+    padding: 15px;
+  }
+  .content .blogCard__thumbnail {
+    width: 90px;
+    padding: 0 15px 0 0;
+  }
+  .content .blogCard__content {
+    padding-left: 0;
+  }
+  .content .blogCard__title {
+    font-size: 0.95em;
+  }
+  .content .blogCard__excerpt {
+    margin-bottom: 10px;
+  }
+  .content .wp-block-media-text {
+    width: 100%;
+    margin: 0;
+  }
+  .content .wp-block-media-text .wp-block-media-text__media {
+    float: none;
+    width: 100%;
+  }
+  .content .wp-block-media-text .wp-block-media-text__content {
+    float: none;
+    width: 100%;
+    padding: 12px 15px;
+  }
+  .content .wp-block-media-text .wp-block-media-text__content p {
+    font-size: 15px;
+    -webkit-line-clamp: 4;
+    padding: 0;
   }
 }
 @keyframes moreFadeIn {
@@ -2832,37 +3051,37 @@
   /* body
   ------------------------------*/
 }
-.profile_header {
+.profile__header {
   padding-top: 50px;
   margin-bottom: 30px;
 }
-.profile_headerTitle {
+.profile__headerTitle {
   color: #fff;
   font-size: 28px;
   text-align: center;
   margin-bottom: 20px;
 }
-.profile_headerTitle span {
+.profile__headerTitle span {
   display: block;
   font-size: 14px;
   font-weight: normal;
 }
-.profile_desc {
+.profile__desc {
   text-align: center;
 }
-.profile_descText {
+.profile__descText {
   color: #fff;
   font-size: 18px;
   font-weight: bold;
 }
-.profile_content {
+.profile__content {
   width: 100%;
   height: auto;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 20px;
   margin-bottom: 40px;
 }
-.profile_content::after {
+.profile__content::after {
   content: "";
   display: block;
   clear: both;
@@ -2870,32 +3089,32 @@
   line-height: 0;
   visibility: hidden;
 }
-.profile_imageBox {
+.profile__imageBox {
   float: left;
   width: 300px;
   border-radius: 10px;
   overflow: hidden;
 }
-.profile_image {
+.profile__image {
   display: block;
   width: 100%;
   height: auto;
 }
-.profile_textBox {
+.profile__textBox {
   float: left;
   padding-left: 20px;
 }
-.profile_title {
+.profile__title {
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 15px;
 }
-.profile_text {
+.profile__text {
   line-height: 1.8;
   margin-bottom: 0;
 }
 
-.sec_btn a:hover {
+.sec__btn a:hover {
   text-decoration: none;
 }
 
@@ -2913,37 +3132,37 @@
     /* body
     ------------------------------*/
   }
-  .profile_header {
+  .profile__header {
     padding-top: 30px;
   }
-  .profile_headerTitle {
+  .profile__headerTitle {
     margin-bottom: 10px;
   }
-  .profile_descText {
+  .profile__descText {
     font-size: 16px;
   }
-  .profile_content {
+  .profile__content {
     padding: 15px;
     margin-bottom: 20px;
   }
-  .profile_imageBox {
+  .profile__imageBox {
     float: none;
     width: 100%;
     margin-bottom: 10px;
   }
-  .profile_image {
+  .profile__image {
     display: block;
     width: 100%;
     height: auto;
   }
-  .profile_textBox {
+  .profile__textBox {
     float: none;
     padding-left: 0;
   }
-  .profile_title {
+  .profile__title {
     margin-bottom: 10px;
   }
-  .profile_text {
+  .profile__text {
     font-size: 14px;
   }
 }
