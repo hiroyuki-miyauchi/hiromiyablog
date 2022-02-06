@@ -32,11 +32,12 @@
  header
 ------------------------------*/
 .profile {
-  &_header {
+  &__header {
     padding-top: 50px;
     margin-bottom: 30px;
   }
-  &_headerTitle {
+
+  &__headerTitle {
     color: #fff;
     font-size: 28px;
     text-align: center;
@@ -47,57 +48,83 @@
       font-weight: normal;
     }
   }
-  &_desc {
+
+  &__desc {
     text-align: center;
   }
-  &_descText {
+
+  &__descText {
     color: #fff;
     font-size: 18px;
     font-weight: bold;
   }
+
   /* body
   ------------------------------*/
-  &_body {
+  &__body {
   }
-  &_inner {
+
+  &__inner {
   }
-  &_content {
+
+  &__content {
     width: 100%;
     height: auto;
     background-color: rgba(255,255,255,0.7);
-    padding: 20px;
+    padding: 50px;
     margin-bottom: 40px;
     &::after {
       @include clearfix(); // 引数は初期値のを使用
     }
   }
-  &_imageBox {
-    float: left;
-    width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
+
+  &__mainTitle {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 30px;
   }
-  &_image {
+
+  &__mainBox {
+    margin-bottom: 20px;
+  }
+
+  &__imageBox {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__image {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 10px;
+    overflow: hidden;
   }
-  &_textBox {
+
+  &__textBox {
     float: left;
     padding-left: 20px;
   }
-  &_title {
-    font-size: 26px;
+
+  &__title {
+    font-size: 18px;
     font-weight: bold;
+    border-bottom: 3px solid #202f55;
+    padding: 12px 0;
     margin-bottom: 15px;
   }
-  &_text {
+
+  &__text {
     line-height: 1.8;
     margin-bottom: 0;
+
+    a {
+      color: #0073aa;
+    }
   }
 }
 
-.sec_btn {
+.sec__btn {
   a {
     &:hover {
       text-decoration: none;
@@ -120,45 +147,56 @@
    header
   ------------------------------*/
   .profile {
-    &_header {
+    &__header {
       padding-top: 30px;
     }
-    &_headerTitle {
+
+    &__headerTitle {
       margin-bottom: 10px;
     }
-    &_desc {
+
+    &__desc {
     }
-    &_descText {
+
+    &__descText {
       font-size: 16px;
     }
+
     /* body
     ------------------------------*/
-    &_body {
+    &__body {
     }
-    &_inner {
+
+    &__inner {
     }
-    &_content {
+
+    &__content {
       padding: 15px;
       margin-bottom: 20px;
     }
-    &_imageBox {
+
+    &__imageBox {
       float: none;
       width: 100%;
       margin-bottom: 10px;
     }
-    &_image {
+
+    &__image {
       display: block;
       width: 100%;
       height: auto;
     }
-    &_textBox {
+
+    &__textBox {
       float: none;
       padding-left: 0;
     }
-    &_title {
+
+    &__title {
       margin-bottom: 10px;
     }
-    &_text {
+
+    &__text {
       font-size: 14px;
     }
   }

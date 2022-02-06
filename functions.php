@@ -283,15 +283,15 @@ add_shortcode( 'sns_share_button_with_text', 'sns_share_button_shortcode_with_te
  */
 function google_adsense_article_advertisement_horizontal_type( $atts ) {
   $html = '<!-- 記事内ディスプレイ広告（横長タイプ） -->' . "\n";
-  $html .= '<ins class="adsbygoogle"' . "\n";
-  $html .= '  style="display:block"' . "\n";
-  $html .= '  data-ad-client="ca-pub-4705807784297073"' . "\n";
-  $html .= '  data-ad-slot="1813786109"' . "\n";
-  $html .= '  data-ad-format="auto"' . "\n";
-  $html .= '  data-full-width-responsive="true"></ins>' . "\n";
-  $html .= '<script>' . "\n";
-  $html .= '  (adsbygoogle = window.adsbygoogle || []).push({});' . "\n";
-  $html .= '</script>';
+  // $html .= '<ins class="adsbygoogle"' . "\n";
+  // $html .= '  style="display:block"' . "\n";
+  // $html .= '  data-ad-client="ca-pub-4705807784297073"' . "\n";
+  // $html .= '  data-ad-slot="1813786109"' . "\n";
+  // $html .= '  data-ad-format="auto"' . "\n";
+  // $html .= '  data-full-width-responsive="true"></ins>' . "\n";
+  // $html .= '<script>' . "\n";
+  // $html .= '  (adsbygoogle = window.adsbygoogle || []).push({});' . "\n";
+  // $html .= '</script>';
   return $html;
 }
 add_shortcode( 'google_adsense_article_advertisement', 'google_adsense_article_advertisement_horizontal_type' );
