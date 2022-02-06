@@ -12,5 +12,6 @@
     );
     wp_list_categories( $args ); // カテゴリーページへのリンク一覧を表示する（$args= title：見出し（省略時は「カテゴリー」）、show_count：投稿数を表示するかどうか。表示する場合はtrue（省略時はfalse）、depth：ulタグとliタグを使用した階層付きでマークアップされたHTMLを表示するか。liタグのみで階層なしの場合はfalseを指定、orderby：ソート対象。対象には'ID'、'name'、'slug'、'count'、'term_group'を使用（省略時は'name'）、order：ソート順。'ASC'は昇順、'DESC'は降順（省略時は'ASC'）、hide_empty：投稿記事がないカテゴリーを表示するかどうか。表示する場合はfalse（省略時はtrue））
     ?>
+    <li><a href="<?php echo esc_url( get_page_link( 384 ) ); // この固定ページのURLを取得 ?>">デモページ一覧</a></li>
   </ul>
 </aside>

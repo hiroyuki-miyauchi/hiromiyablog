@@ -28,12 +28,15 @@
 
 <!-- HTML -->
 <div class="pageTop js-pageTop">
-  <span class="pageTop_icon"></span>
+  <span class="pageTop__icon"></span>
 </div>
 
 
 <!-- CSS -->
 <style>
+/*--------------------
+ pageTop
+--------------------*/
 .pageTop {
   position: fixed;
   right: 50px;
@@ -50,14 +53,14 @@
 .pageTop:hover {
   opacity: 0.9;
 }
-.pageTop_icon {
+.pageTop__icon {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
 }
-.pageTop_icon::after,
-.pageTop_icon::before {
+.pageTop__icon::after,
+.pageTop__icon::before {
   content: "";
   position: absolute;
   top: 24px;
@@ -66,28 +69,28 @@
   border-radius: 3px;
   background-color: #fff;
 }
-.pageTop_icon::before {
+.pageTop__icon::before {
   left: 16px;
   transform: rotate(-45deg);
 }
-.pageTop_icon::after {
+.pageTop__icon::after {
   right: 16px;
   transform: rotate(45deg);
 }
-
-/* デモ用style */
 </style>
 
 
 <!-- JS -->
-<!-- jQuery CDNの読み込み -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- jQuery本体の読み込み -->
+<script src="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/libs/jquery-3.6.0.min.js"></script>
 
 <!-- 個別のjQueryコード -->
 <script>
 // PageTop
-$('.js-pageTop').on('click', function(){
-  $('html, body').animate({scrollTop: 0}, 500, 'swing'); // 0.5秒かけてページトップへ戻る
+$(function () {
+  $('.js-pageTop').on('click', function () {
+    $('html, body').animate({scrollTop: 0}, 500, 'swing'); // 0.5秒かけてページトップへ戻る
+  });
 });
 </script>
 
