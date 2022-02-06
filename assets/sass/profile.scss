@@ -84,19 +84,13 @@
     margin-bottom: 30px;
   }
 
-  &__title {
-    font-size: 18px;
-    border-bottom: 3px solid #202f55;
-    padding: 12px 0;
-    margin-bottom: 15px;
-  }
-
   &__mainBox {
     margin-bottom: 20px;
   }
 
   &__imageBox {
     width: 100%;
+    margin-bottom: 20px;
   }
 
   &__image {
@@ -113,14 +107,20 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
+    border-bottom: 3px solid #202f55;
+    padding: 12px 0;
     margin-bottom: 15px;
   }
 
   &__text {
     line-height: 1.8;
     margin-bottom: 0;
+
+    a {
+      color: #0073aa;
+    }
   }
 }
 

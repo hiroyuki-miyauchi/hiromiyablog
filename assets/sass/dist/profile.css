@@ -3094,17 +3094,12 @@
   font-weight: 700;
   margin-bottom: 30px;
 }
-.profile__title {
-  font-size: 18px;
-  border-bottom: 3px solid #202f55;
-  padding: 12px 0;
-  margin-bottom: 15px;
-}
 .profile__mainBox {
   margin-bottom: 20px;
 }
 .profile__imageBox {
   width: 100%;
+  margin-bottom: 20px;
 }
 .profile__image {
   display: block;
@@ -3118,13 +3113,18 @@
   padding-left: 20px;
 }
 .profile__title {
-  font-size: 26px;
+  font-size: 18px;
   font-weight: bold;
+  border-bottom: 3px solid #202f55;
+  padding: 12px 0;
   margin-bottom: 15px;
 }
 .profile__text {
   line-height: 1.8;
   margin-bottom: 0;
+}
+.profile__text a {
+  color: #0073aa;
 }
 
 .sec__btn a:hover {
