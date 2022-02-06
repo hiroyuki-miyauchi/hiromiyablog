@@ -27,6 +27,12 @@
 
         <div id="sideNavigation" class="col-12 col-md-3 js-sideNavigation">
           <?php get_template_part('template-parts/side-navigation'); // サイドナビを読み込む ?>
+          <div class="fixedNavigationClose js-fixedNavigationClose">
+            <div class="fixedNavigationClose_inner">
+              <span class="fixedNavigationClose_line fixedNavigationClose_lineTop"></span>
+              <span class="fixedNavigationClose_line fixedNavigationClose_lineBottom"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

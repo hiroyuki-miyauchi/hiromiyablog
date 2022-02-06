@@ -96,7 +96,11 @@
             <div class="bnr_inner">プログラミング<span>PROGRAMMING</span></div>
           </a>
         </div>
-
+        <div class="col-md-6 category_list">
+          <a href="<?php echo esc_url( get_page_link( 384 ) ); // この固定ページのURLを取得 ?>" class="bnr" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/home/demo.jpg')">
+            <div class="bnr_inner">デモページ一覧<span>DEMO PAGE LIST</span></div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
