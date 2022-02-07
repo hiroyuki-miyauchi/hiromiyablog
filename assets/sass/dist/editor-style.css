@@ -2969,9 +2969,11 @@ input.dem-add-answer-txt {
   /*------------------------------
    見出し
   ------------------------------*/
-  .content h2,
-.content h3,
-.content h4 {
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
     font-size: 18px;
   }
 
@@ -3009,7 +3011,7 @@ input.dem-add-answer-txt {
     padding: 0 15px 0 0;
   }
   .blogCard__content {
-    padding-left: 0;
+    padding-left: 90px;
   }
   .blogCard__title {
     font-size: 0.95em;
