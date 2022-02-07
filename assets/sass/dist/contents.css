@@ -2557,9 +2557,10 @@
     ------------------------------*/
     /* 画像＋テキストブロック */
   }
-  .content .content h2,
-.content .content h3,
-.content .content h4 {
+  .content h2 {
+    font-size: 20px;
+  }
+  .content h3 {
     font-size: 18px;
   }
   .content .associateDetailsButton_box {
@@ -2585,7 +2586,7 @@
     padding: 0 15px 0 0;
   }
   .content .blogCard__content {
-    padding-left: 0;
+    padding-left: 90px;
   }
   .content .blogCard__title {
     font-size: 0.95em;
@@ -3513,6 +3514,7 @@
 .article .article_title {
   text-align: center;
   font-size: 28px;
+  line-height: 1.4;
 }
 @media only screen and (max-width: 767px) {
   .article .article_title {
