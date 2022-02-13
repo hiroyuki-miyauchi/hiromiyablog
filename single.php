@@ -23,8 +23,6 @@
                 <div class="content">
                   <?php the_content(); // 記事の本文すべて、または一部を表示する（引数１：ページを分割したいときに表示される区切りの文字。省略時は（more…）が表示される、引数２：ページを分割するかどうか。trueで分割、falseで分割しない（省略時はfalse）、引数３：現バージョンでは使われていない） ?>
                 </div>
-
-                <?php //comments_template(); // 投稿ページや固定ページのコメント情報を取得し、コメント欄の表示・投稿用のテンプレートファイルを読み込む（引数１：コメントテンプレート（デフォルトはcomments.php）、引数２：各コメントを区切る場合はtrueを指定する） ?>
               </div>
 
               <?php if ( in_category( array( '19', '23' ) )) : ?>
@@ -85,6 +83,8 @@
               <?php readpost_typecheack(3); // この設定だと最新(n)件の閲覧履歴（キャッシュ）を表示 ?>
             </div>
           </div>
+
+          <?php comments_template(); // 投稿ページや固定ページのコメント情報を取得し、コメント欄の表示・投稿用のテンプレートファイルを読み込む（引数１：コメントテンプレート（デフォルトはcomments.php）、引数２：各コメントを区切る場合はtrueを指定する） ?>
         </div>
 
         <div id="sideNavigation" class="col-12 col-md-3 js-sideNavigation">

@@ -4105,7 +4105,7 @@ body .archive.tags .tags_list a.tags_link:hover {
 .comments {
   border-top: 1px solid #ddd;
   padding-top: 50px;
-  margin-top: 50px;
+  margin: 80px auto 80px auto;
   font-size: 14px;
 }
 @media only screen and (max-width: 767px) {
@@ -4113,8 +4113,12 @@ body .archive.tags .tags_list a.tags_link:hover {
     font-size: 14px;
   }
 }
+.comments .comment-respond {
+  margin-bottom: 20px;
+}
 .comments .comment-respond .comment-reply-title {
   font-size: 18px;
+  margin-bottom: 15px;
 }
 @media only screen and (max-width: 767px) {
   .comments .comment-respond .comment-reply-title {
@@ -4122,12 +4126,20 @@ body .archive.tags .tags_list a.tags_link:hover {
   }
 }
 .comments .comment-respond + p {
-  border-top: 1px dotted #eee;
   border-bottom: 1px dotted #eee;
   text-align: right;
+  padding: 15px 0;
+}
+.comments .comment-form {
+  padding: 20px 20px 30px;
+  border: 1px solid #eee;
+  background-color: rgba(32, 47, 85, 0.03);
+  box-shadow: 0 4px 10px 0 rgba(40, 49, 53, 0.1);
+  border-radius: 9px;
 }
 .comments .comment-form .comment-notes {
   font-size: 12px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 767px) {
   .comments .comment-form .comment-notes {
@@ -4143,13 +4155,35 @@ body .archive.tags .tags_list a.tags_link:hover {
     font-size: 14px;
   }
 }
+.comments .comment-form label[for=siteguard_captcha] {
+  font-size: 12px;
+}
+.comments .comment-form .comment-form-comment {
+  margin-bottom: 20px;
+}
 .comments .comment-form .comment-form-comment label {
   display: block;
+  margin-bottom: 5px;
 }
-.comments .comment-form .comment-form-comment textarea {
+.comments .comment-form .comment-form-comment textarea#comment {
   width: 100%;
-  height: 200px;
-  padding: 10px;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 15px;
+}
+.comments .comment-form .comment-form-comment + p {
+  margin-bottom: 10px;
+}
+.comments .comment-form #siteguard_captcha {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px 10px 10px;
+  margin: 10px auto;
 }
 .comments .comment-form .comment-form-author,
 .comments .comment-form .comment-form-email,
@@ -4179,30 +4213,32 @@ body .archive.tags .tags_list a.tags_link:hover {
 }
 .comments .comment-form .form-submit {
   text-align: center;
+  margin-top: 20px;
 }
 .comments .comment-form .form-submit .submit {
   display: inline-block;
   padding: 15px 25px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
   text-align: center;
   text-decoration: none;
-  border-radius: 5px 5px 5px 5px !important;
+  border-radius: 5px;
   border: none;
+  border: 1px solid #ddd;
   background-color: #eee;
   position: relative;
 }
 @media only screen and (max-width: 767px) {
   .comments .comment-form .form-submit .submit {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 .comments .comment-form .form-submit .submit:hover {
   opacity: 0.8;
 }
 .comments .commentlist .comment {
-  padding: 15px 0;
+  padding: 20px 20px;
   border-bottom: 1px dotted #ddd;
 }
 .comments .commentlist .comment:last-child {
@@ -4236,6 +4272,10 @@ body .archive.tags .tags_list a.tags_link:hover {
 }
 .comments .commentlist .comment .comment-body p {
   font-size: 16px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 10px 15px 10px;
+  margin: 15px 0;
 }
 @media only screen and (max-width: 767px) {
   .comments .commentlist .comment .comment-body p {
@@ -4243,7 +4283,9 @@ body .archive.tags .tags_list a.tags_link:hover {
   }
 }
 .comments .commentlist .comment .comment-body .reply {
+  display: none;
   text-align: center;
+  margin-top: 20px;
 }
 .comments .commentlist .comment .comment-body .reply .comment-reply-link {
   display: inline-block;
@@ -4266,7 +4308,7 @@ body .archive.tags .tags_list a.tags_link:hover {
 @media only screen and (max-width: 767px) {
   .comments {
     padding-top: 30px;
-    margin-top: 30px;
+    margin: 60px auto 20px;
   }
   .comments .comment-respond .comment-reply-title {
     font-size: 14px;
@@ -4278,6 +4320,9 @@ body .archive.tags .tags_list a.tags_link:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  .comments .comment-form {
+    padding: 15px 15px 20px;
+  }
   .comments .comment-form .logged-in-as {
     font-size: 12px;
   }
@@ -4288,8 +4333,16 @@ body .archive.tags .tags_list a.tags_link:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  .comments .comment-form .comment-form-comment {
+    margin-bottom: 10px;
+  }
   .comments .comment-form .comment-form-comment textarea {
     height: 100px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .comments .comment-form .comment-form-comment + p {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -4321,6 +4374,9 @@ body .archive.tags .tags_list a.tags_link:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  .comments .comment-form .form-submit {
+    margin-top: 10px;
+  }
   .comments .comment-form .form-submit .submit {
     font-size: 14px;
   }
