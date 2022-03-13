@@ -24,9 +24,9 @@
             <?php endwhile; ?>
           <?php endif; ?>
 
-          <!-- <div class="googleAdSenseHorizontal">
-            <?php //get_template_part('template-parts/googleAdSense-horizontal'); // 「GoogleA dSense」横長タイプを読み込む ?>
-          </div> -->
+          <div class="googleAdSenseHorizontal">
+            <?php get_template_part('template-parts/googleAdSense-horizontal'); // 「GoogleA dSense」横長タイプを読み込む ?>
+          </div>
 
           <div class="browsingHistory">
             <div class="browsingHistory_inner">

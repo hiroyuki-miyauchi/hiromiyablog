@@ -68,7 +68,7 @@ if ( is_home() ) {
 <?php wp_footer(); // WordPressのプラグインなどの機能が使えなくなるので入れるのが推奨されている ?>
 
 <!-- Google AdSense -->
-<!-- <script data-ad-client="ca-pub-4705807784297073" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705807784297073" crossorigin="anonymous"></script>
 <!-- /Google AdSense end -->
 
 <!-- twitter -->
