@@ -48,6 +48,14 @@
 <?php the_field('javascript_codes_body') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
 <?php endif; ?>
 
+<div class="googleAdSenseHorizontal">
+  <?php get_template_part('template-parts/googleAdSense-horizontal'); // 「GoogleA dSense」横長タイプを読み込む ?>
+</div><!-- /.googleAdSenseHorizontal -->
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705807784297073" crossorigin="anonymous"></script>
+<!-- /Google AdSense end -->
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179107583-3"></script>
 <script>
@@ -58,5 +66,11 @@
 </script>
 <!-- /Global site tag (gtag.js) - Google Analytics end -->
 
+<style>
+.googleAdSenseHorizontal {
+  text-align: center;
+  margin: 150px auto;
+}
+</style>
 </body>
 </html>
