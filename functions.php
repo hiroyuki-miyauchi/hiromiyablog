@@ -510,13 +510,13 @@ function show_Linkcard($atts) {
   // wordpress.comのAPIを利用してスクリーンショットを取得
   $screenShot = 'https://s.wordpress.com/mshots/v1/'. urlencode(esc_url(rtrim( $url, '/' ))) .'?w='. $img_width .'&h='.$img_height.'';
   // スクリーンショットを表示
-  $xLink_img = '<img class="blogCard__thumbnailImage" src="'. $screenShot .'" width="'. $img_width .'" />';
+  $xLink_img = '<img class="blogCard__thumbnailImage" src="'. $screenShot .'" width="'. $img_width .'" alt="" />';
 
   // ファビコンを取得（GoogleのAPIでスクレイピング）
   $host = parse_url($url)['host'];
   $searchFavcon = 'https://www.google.com/s2/favicons?domain='.$host;
   if ($searchFavcon) {
-    $favicon = '<img class="blogCard__favicon" src="'.$searchFavcon.'">';
+    $favicon = '<img class="blogCard__favicon" src="'.$searchFavcon.'" alt="">';
   }
 
   // 外部リンク用ブログカードHTML出力
