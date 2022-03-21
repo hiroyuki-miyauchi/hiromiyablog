@@ -49,7 +49,7 @@
 <?php endif; ?>
 
 <div class="googleAdSenseHorizontal">
-  <?php get_template_part('template-parts/googleAdSense-horizontal'); // 「GoogleA dSense」横長タイプを読み込む ?>
+  <?php get_template_part('template-parts/googleAdSense-multiplex'); // 「GoogleA dSense」横長タイプを読み込む ?>
 </div><!-- /.googleAdSenseHorizontal -->
 
 <!-- Google AdSense -->

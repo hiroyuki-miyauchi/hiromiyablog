@@ -1474,12 +1474,24 @@ ul p {
   display: inline-block;
 }
 
+/*------------------------------
+ 強調部分
+------------------------------*/
+code {
+  /* font-family: "Noto Sans JP",sans-serif; */
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+
 /*----------------------------------------
  SP（max-width: 767px）
 ----------------------------------------*/
 @media only screen and (max-width: 767px) {
   /*------------------------------
-   一時調整用（あとで整理）
+  一時調整用（あとで整理）
   ------------------------------*/
   .form .form_row {
     display: block;
@@ -1495,10 +1507,10 @@ ul p {
   }
 
   /*------------------------------
-   wrapper
+  wrapper
   ------------------------------*/
   /*------------------------------
-   content
+  content
   ------------------------------*/
   .category_list {
     margin-bottom: 0;
@@ -1514,9 +1526,16 @@ ul p {
   }
 
   /*------------------------------
-   relatedArticle
+  relatedArticle
   ------------------------------*/
   .relatedArticle_title {
     font-size: 22px;
+  }
+
+  /*------------------------------
+  強調部分
+  ------------------------------*/
+  code {
+    font-size: 15px;
   }
 }
