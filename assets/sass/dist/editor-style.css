@@ -2958,6 +2958,18 @@ input.dem-add-answer-txt {
 }
 
 /*------------------------------
+ 強調部分
+------------------------------*/
+code {
+  /* font-family: "Noto Sans JP",sans-serif; */
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+
+/*------------------------------
  サイズ別
 ------------------------------*/
 @media only screen and (min-width: 1200px) {
@@ -3018,6 +3030,13 @@ input.dem-add-answer-txt {
   }
   .blogCard__excerpt {
     margin-bottom: 10px;
+  }
+
+  /*------------------------------
+  強調部分
+  ------------------------------*/
+  code {
+    font-size: 15px;
   }
 
   /*------------------------------

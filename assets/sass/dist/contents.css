@@ -52,6 +52,9 @@
    HCBプラグイン 調整用CSS
   ------------------------------*/
   /*------------------------------
+   強調部分
+  ------------------------------*/
+  /*------------------------------
    サイズ別
   ------------------------------*/
   /*------------------------------
@@ -2531,6 +2534,14 @@
   min-width: 5em;
   text-align: right;
 }
+.content code {
+  /* font-family: "Noto Sans JP",sans-serif; */
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
 @media only screen and (min-width: 1200px) {
   .content .content iframe.googlemap {
     height: 450px;
@@ -2552,6 +2563,9 @@
     ------------------------------*/
     /* アソシエイトボタンセット */
     /* 外部リンク対応ブログカード */
+    /*------------------------------
+    強調部分
+    ------------------------------*/
     /*------------------------------
      wp block 調整用CSS
     ------------------------------*/
@@ -2593,6 +2607,9 @@
   }
   .content .blogCard__excerpt {
     margin-bottom: 10px;
+  }
+  .content code {
+    font-size: 15px;
   }
   .content .wp-block-media-text {
     width: 100%;
