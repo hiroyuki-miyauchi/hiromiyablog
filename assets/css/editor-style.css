@@ -2958,6 +2958,18 @@ input.dem-add-answer-txt {
 }
 
 /*------------------------------
+ 強調部分
+------------------------------*/
+code {
+  /* font-family: "Noto Sans JP",sans-serif; */
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+
+/*------------------------------
  サイズ別
 ------------------------------*/
 @media only screen and (min-width: 1200px) {
@@ -2969,9 +2981,11 @@ input.dem-add-answer-txt {
   /*------------------------------
    見出し
   ------------------------------*/
-  .content h2,
-.content h3,
-.content h4 {
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
     font-size: 18px;
   }
 
@@ -3009,13 +3023,20 @@ input.dem-add-answer-txt {
     padding: 0 15px 0 0;
   }
   .blogCard__content {
-    padding-left: 0;
+    padding-left: 90px;
   }
   .blogCard__title {
     font-size: 0.95em;
   }
   .blogCard__excerpt {
     margin-bottom: 10px;
+  }
+
+  /*------------------------------
+  強調部分
+  ------------------------------*/
+  code {
+    font-size: 15px;
   }
 
   /*------------------------------

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>HTMLメルマガ生成ツールテストページ</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="all" href="css/default.min.css">
+<link rel="stylesheet" type="text/css" media="all" href="css/dist/style.css">
+
+<!-- favicon -->
+<link rel="icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_32,h_32/https://hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_192,h_192/https://hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_180,h_180/https://hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo-180x180.jpg" />
+<!-- /favicon -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<script type="text/javascript" src="https://hiromiyablog.com/test/js/jquery-1-11-1.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+<!-- Clipboard copy -->
+<script type="text/javascript" src="js/clipboard.js"></script>
+<script type="text/javascript" src="js/clipboard_execution.js"></script>
+<!-- /Clipboard copy -->
+
+<!-- html2canvas -->
+<script type="text/javascript" src="js/html2canvas.min.js"></script>
+<script type="text/javascript" src="js/html2canvas_execution.js"></script>
+<!-- /html2canvas -->
+</head>
+<body>
+
+  <!-- ▼▼▼ header ▼▼▼ -->
+  <header>
+    <div id="headerArea">
+      <div id="logo"><h1><img src="img/logo.png" width="400" height="48" alt="Free Creative Quickly"></h1></div>
+      <div id="powered"><p>powered&nbsp;by&nbsp;<span>HIROYUKI&nbsp;MIYAUCHI</span></p></div>
+    </div>
+  </header>
+  <!-- ▲▲▲ /header ▲▲▲ -->
+
+  <div id="wrapper">
+
+    <div id="fixedArea">
+      <div id="fixedContent">
+        <div id="naviArea">
+          <div id="naviContent">
+            <div id="resetGeneratBtnArea">
+              <ul>
+                <li>
+                  <p id="resetBtn"><img src="img/reset_btn.png" width="120" height="30" alt="１つ前に戻す"></p>
+                  <p id="allReset"><img src="img/all_reset_btn.png" width="120" height="30" alt="全てリセット"></p>
+                </li>
+                <li>
+                  <p id="generationBtn"><img src="img/generation_btn.png" width="240" height="66" alt="HTMLを生成"></p>
+                </li>
+              </ul>
+              <p>右のサムネイルから挿入したいパーツを選び、終わったら「HTMLを生成」を押してください。</p>
+            </div><!-- /resetGeneratBtnArea -->
+            
+            <div id="contentImgBtnArea">
+              <div class="btnArea">
+                <ul>
+                  <li id="con1" class="contentImgBtn"><img src="img/content_img_01.png" width="200" height="130" alt=""><p>メインビジュアル+リード文</p></li>
+                  <li id="con2" class="contentImgBtn"><img src="img/content_img_02.png" width="200" height="130" alt=""><p>見出し</p></li>
+                  <li id="con3" class="contentImgBtn"><img src="img/content_img_03.png" width="200" height="130" alt=""><p>バナー(L)</p></li>
+                  <li id="con4" class="contentImgBtn"><img src="img/content_img_04.png" width="200" height="130" alt=""><p>バナー(S)</p></li>
+                  <li id="con5" class="contentImgBtn"><img src="img/content_img_05.png" width="200" height="130" alt=""><p>バナー(L)&nbsp;横並び</p></li>
+                  <li id="con6" class="contentImgBtn"><img src="img/content_img_06.png" width="200" height="130" alt=""><p>バナー(S)&nbsp;横並び</p></li>
+                  <li id="con7" class="contentImgBtn"><img src="img/content_img_07.png" width="200" height="130" alt=""><p>テキスト+テキストリンク</p></li>
+                  <li id="con8" class="contentImgBtn"><img src="img/content_img_08.png" width="200" height="130" alt=""><p>小見出し+テキスト</p></li>
+                  <li id="con9" class="contentImgBtn"><img src="img/content_img_09.png" width="200" height="130" alt=""><p>テキストリンク×3</p></li>
+                  <li id="con10" class="contentImgBtn"><img src="img/content_img_10.png" width="200" height="130" alt=""><p>緑ボタン</p></li>
+                  <li id="con11" class="contentImgBtn"><img src="img/content_img_11.png" width="200" height="130" alt=""><p>白ボタン</p></li>
+                  <li id="con12" class="contentImgBtn"><img src="img/content_img_12.png" width="200" height="130" alt=""><p>緑ボタン&nbsp;横並び</p></li>
+                  <li id="con13" class="contentImgBtn"><img src="img/content_img_13.png" width="200" height="130" alt=""><p>白ボタン&nbsp;横並び</p></li>
+                </ul>
+              </div><!--/btnArea-->
+              <div id="leftShadow"><span></span></div>
+              <div id="rightShadow"><span></span></div>
+            </div><!--/contentImgBtnArea-->
+          </div><!--/naviContent-->
+        </div><!--/naviArea-->
+        <div id="naviOpenClose"><span></span></div>
+      </div><!--/fixedContent-->
+    </div><!--/fixedArea-->
+
+    <div class="container clearfix">
+      <div class="mainContents">
+        <div class="contentCenter">
+  <table align="center" width="560" border="0" cellpadding="0" cellspacing="0" link="#243F8F" vlink="#243F8F" alink="#FFC822" leftmargin="0" topmargin="0" bottommargin="0" marginwidth="0" marginheight="0" text="#222222" style="color:#222222; font-family:'ＭＳ Ｐゴシック','MS PGothic','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',sans-serif; border: 1px solid #CCC; background-color: #FFFFFF;">
+    <tbody>
+      <!--header-->
+      <tr>
+        <td align="center" style="background-color: #2C2D87;">
+          <p style="color: #FFFFFF; font-size: 30px; font-weight: bold; line-height: 150%; padding: 20px 0; margin: 0;">Free Creative Quickly</p>
+        </td>
+      </tr>
+      <!--/header-->
+      <tr>
+        <td align="left" valign="top" style="background-color: #FFFFFF; padding: 20px 20px 10px;">
+          <table width="520" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <div id="contentArea"></div>
+            <!--footer template-->
+              <tr>
+                <td align="left" style="border-top: 1px dotted #CCC; padding: 10px 0 0 0;">
+                  <table width="520" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td align="left"><img src="#" width="520" height="1" border="0" alt="" style="vertical-align: bottom;"></td>
+                      </tr>
+                      <tr>
+                        <td align="left" style="padding: 10px 0 0 0;">
+                          <p style="font-size: 14px; line-height: 150%; margin: 0;">○○○○サイトのアンケートにご協力ください。<br>ご回答いただいた方の中から、抽選でiPadなど、プレゼントいたします。</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" style="padding: 10px 0 20px;">
+                          <p style="font-size: 14px; line-height: 150%; margin: 0;">
+                            <img src="#" width="10" height="10" border="0" alt="" style="margin-right:3px;">
+                            <a href="#" target="_blank">○○○○のアンケートに回答する</a>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <table width="520" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td align="left" width="120">
+                                  <p style="font-size: 12px; line-height:150%; font-weight:bold; margin: 0;">メルマガタイトル</p>
+                                </td>
+                                <td align="right" width="400">
+                                  <p style="font-size: 12px; line-height:150%; font-weight:bold; margin: 0;">編集・発行<a href="#" target="_blank">○○○○○○○○株式会社　○○○○編集部</a></p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left" style="padding: 0 0 11px 11px;">
+                          <p style="font-size: 12px; line-height: 150%; margin: 0;">【メール配信停止方法】<br>メールマガジンの配信停止を希望される方は、会員専用ページの<a href="#" target="_blank">登録情報設定</a>で、「○○○○メールマガジン　メルマガタイトル」の配信設定を「利用停止」に変更してください。<br><br>※配信停止手続き後や退会手続き後も処理の都合により、2～3日配信されることがございます。何卒ご了承ください。<br>※ご確認をいただくタイミングによっては、該当求人情報の掲載が終了している可能性もございます。あらかじめご了承ください。<br>※当メールは送信専用です。申し訳ございませんがご返信なさらぬようお願いいたします。</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <table border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr valign="top">
+                                <td align="left" style="padding-right:20px;">
+                                  <p style="font-size: 12px; line-height:150%; margin: 0;"><a href="#" target="_blank">よくいただくご質問</a></p>
+                                </td>
+                                <td align="left">
+                                  <p style="font-size: 12px; line-height:150%; margin: 0;"><a href="#" target="_blank">ご意見・お問い合わせ</a></p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <!--/footer template-->
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+      <td align="right" style="height:32px; min-height:32px; background-color: #272884; padding: 10px 11px 10px;"><p style="color: #FFFFFF; font-size:10px; line-height:100%; margin: 0;">Copyright hiroyuki miyauchi</p></td>
+      </tr>
+    </tbody>
+  </table>
+        <!-- /contentCenter --></div>
+
+        <div id="preArea">
+          <pre id="copy001" class="brush: html;"></pre>
+          <p>HTMLソース</p>
+          <div class="copyBtnArea copyBtn" data-clipboard-target="#copy001"><img src="img/copy_btn.png" width="180" height="30" alt=""></div>
+        </div><!--/preArea-->
+      </div><!--/mainContents-->
+
+      <!-- <div id="captureBtn"><img src="img/capture_btn.png" width="110" height="80" alt="キャプチャ"></div> -->
+
+    </div><!--/container-->
+    
+  </div><!--/wrapper-->
+
+  <!-- 開発者紹介モーダル -->
+  <div id="poweredModal">
+    <div class="poweredModalArea">
+      <div class="poweredModalTitle"><img src="img/powered_modal_photo_01.png" width="650" height="260" alt=""></div>
+      <div class="poweredModalText">
+        <dl class="nameArea">
+          <dt>宮内&nbsp;裕幸&nbsp;&nbsp;<span>hiroyuki&nbsp;miyauchi</span></dt>
+          <dd>developper,&nbsp;front&nbsp;end&nbsp;engineer,&nbsp;markup&nbsp;engineer,&nbsp;intaractive&nbsp;&nbsp;designer,&nbsp;happiness&nbsp;creator</dd>
+        </dl>
+        <p>パーソルキャリア（株）が運営する転職サイトDODAのUI設計を担うクリエイティブグループに所属し、グループ最高峰のフロントエンドナレッジと実装技術によりサイトのインタラクティブ領域を牽引する存在と言っても過言ではない。それが宮内裕幸氏である。2016年5月に同社からの熱烈なヘッドハンティングによりジョイン。交渉は2年にも及んだという。</p>
+        <p>1986年4月10日、鹿児島県出水市に生を受けた時から、宮内氏のその後のキャリアは必然的だったとも言える。彼の産声は「floatがうまく効かない」ことに対する悲しみによるものだったと指摘する専門家も少なくない。初めて覚えた言葉は「ahref」。</p>
+        <p>幼少期から、その類稀なる才能は周囲からの注目を浴びることを避けられなかった。<br>当時全国的にパーソナルコンピュターが小学校に配布され、情報の授業が必修化されたことは、宮内裕幸という存在の説明無しに語ることはできない。詳しくは、同世代を代表する筑波大准教授・学長補佐・デジタルネイチャー推進戦略研究基盤長／ピクシーダストテクノロジーズCEO落合陽一著『圧倒的才能の前に僕は何ができるか 〜裕幸への手紙〜』にて紹介されている。</p>
+        <p>しかし、周囲からの期待とは裏腹に社会人としての1社目には食品業界を選択。その後も建築業界を経験するなど、天邪鬼とも思えるキャリアを歩むことになる。当時を振り返る宮内氏はこう語る。</p>
+        <p>「インターフェースにおけるインタラクティブというものは、実世界のメタファーをバックボーンとしていることは否定し得ない。それまで主にデジタル世界の住人として生きて来た自分は、圧倒的に“外”の世界を知らないと思った。そして、日本の就活を象徴する新卒至上主義を奇異に感じていたんだと思う。そういった、大企業あるいは日本社会に対するある種ルサンチマンが、僕にも少なからずあったんだと言ったら月並みかな」</p>
+        <p>そう言って照れ臭そうに笑う宮内氏は、とても人間臭く見えた。孤独な人間がよく笑う理由をニーチェは説いたが、孤独、いや、孤高の存在がここにある。<br>成熟社会が避けては通れないコモディティ化に陥った現代社会において、情緒を知り、重んじる彼のようなエンジニアは、最強だ。</p>
+        <p>また、アイコニックであり彼のトレードマークとも呼べるスーツ姿にも意味がある。</p>
+        <p>「これはアイロニーさ」</p>
+        <p>そう言って彼自身は多くを語ろうとはしなかった。<br>スティーブ・ジョブズやマーク・ザッカーバーグ同様のノームコアであると言ってしまうことは簡単だが、これは彼なりの贖罪であると筆者は考えている。</p>
+        <p>1989年、初の国産ウイルスと言われる「Japanese Christmas」の制作に宮内氏が関与していたという疑いをかけられたことはあまりにも有名だ。当時彼は3歳だったにも関わらず、だ。突出した才能は時として脅威になりうるという教訓と共に、彼への同情を禁じ得ないのは私だけではないだろう。<br>想像しにくいかもしれないが、先述した落合氏の著書の中で「自分自身がキャズムだったという疑念に囚われる恐怖を、君は知っているか？」と、彼は語っていたというエピソードが紹介されている。そしてまた、その時彼の目には光るものがあった、と。</p>
+        <p>もちろん、その後の裁判で宮内氏の無罪は確定しているが、爆発的なコンピューターの普及期において混乱を招いてしまったことへの罪の意識を、彼の笑顔の裏に見え隠れする憂いを帯びた影から、感じずにはいられなかった。</p>
+        <p>最後にこれだけは伝えておこう。<br>この紹介文を執筆するにあたり、宮内氏の肩書きは筆者側で用意するつもりだった。事実、冒頭の5つの肩書きの内4つ目までは筆者が便宜的に用意したものだ。そのことを彼に伝えると、一つだけ加えて欲しい、と言う。</p>
+        <p>“happiness&nbsp;creator”</p>
+        <p>「インタラクティブによってこの世界を少しでも幸せにするのがフロントエンドだとしたら、僕はその一翼を担いたい」と語る彼の視線は、すでに私たちの遥か先を見据えている。</p>
+        <p class="rightText">（文・写真）佐藤貴明</p>
+      </div>
+    </div>
+  </div>
+  <!-- /開発者紹介モーダル -->
+    
+  <!-- コピー処理結果モーダ -->
+  <div id="modalContent">
+    <div class="modalContentArea">
+      <dl>
+        <dt>処理結果</dt>
+        <dd>コピーしました!!</dd>
+      </dl>
+      <div class="modalContentBtn"><p class="returnBtn">OK</p></div>
+      <div class="modalCloseBtn"><p id="modalClose">×</p></div>
+    </div>
+  </div>
+  <!-- /コピー処理結果モーダル -->
+
+  <!-- ▼▼▼ footer ▼▼▼ -->
+  <footer>
+    <p class="copyright">&copy; hiroyuki miyauchi</p>
+  </footer>
+  <!-- ▲▲▲ /footer ▲▲▲ -->
+</body>
+</html>
