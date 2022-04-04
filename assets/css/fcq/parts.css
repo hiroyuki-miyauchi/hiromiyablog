@@ -1,0 +1,56 @@
+@media screen and (min-width: 769px) {
+  .container {
+    width: 888px;
+    height: auto;
+    min-height: 1000px;
+    padding-top: 50px;
+    margin: 0 auto 300px;
+  }
+
+  /* header
+  ----------------------------------------*/
+  header {
+    width: 100%;
+    height: 60px;
+    background-color: #f2f2f2;
+    margin: 0px auto;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid #e7e7e7;
+    z-index: 9999;
+  }
+
+  header h1 {
+    width: 100%;
+    height: auto;
+    color: #777;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    padding: 12px 0 10px;
+  }
+
+  /* footer
+  ----------------------------------------*/
+  footer {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 0px 0px 5px 5px;
+    border-top: 2px solid #e7e7e7;
+  }
+
+  .copyright {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
