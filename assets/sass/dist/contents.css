@@ -2151,6 +2151,13 @@
   font-weight: bold;
   text-align: center;
 }
+.content table code {
+  font-size: 14px;
+  background-color: #f8f8fa;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
 .content ul,
 .content ol {
   /* dottedBox（点線ボックスリスト） */
@@ -2535,7 +2542,7 @@
   text-align: right;
 }
 .content code {
-  /* font-family: "Noto Sans JP",sans-serif; */
+  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
   font-size: 16px;
   background-color: #f5f5f5;
   border-radius: 5px;
