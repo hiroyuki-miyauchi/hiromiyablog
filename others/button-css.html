@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>CSSで良く見かけるボタンの作り方（Modifier（修飾子）を追加・変更する事で複数の状態に変更可能）</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link" href="#">リンクボタン（アローなし）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrow" href="#">リンクボタン（アロー右）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrowBottom" href="#">リンクボタン（アロー右の下向き）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrowTop" href="#">リンクボタン（アロー右の上向き）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrowLeft" href="#">リンクボタン（アロー左）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrowLeftBottom" href="#">リンクボタン（アロー左の下向き）</a>
+  </p>
+</div><!-- /.button -->
+
+<div class="button">
+  <p class="button__linkBox">
+    <a class="button__link--arrowLeftTop" href="#">リンクボタン（アロー左の上向き）</a>
+  </p>
+</div><!-- /.button -->
+
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ button
+------------------------------*/
+.button {
+  width: 320px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.button__linkBox {
+  width: 100%;
+  height: auto;
+}
+
+.button__link,
+.button__link--arrow,
+.button__link--arrowBottom,
+.button__link--arrowTop,
+.button__link--arrowLeft,
+.button__link--arrowLeftBottom,
+.button__link--arrowLeftTop {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #fff;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #202f55;
+  border-radius: 10px;
+  transition: opacity 0.3s ease 0s;
+  padding: 12px 30px;
+  box-sizing: border-box;
+}
+
+.button__link:hover,
+.button__link--arrow:hover,
+.button__link--arrowBottom:hover,
+.button__link--arrowTop:hover,
+.button__link--arrowLeft:hover,
+.button__link--arrowLeftBottom:hover,
+.button__link--arrowLeftTop:hover {
+  opacity: 0.8;
+}
+
+/* アロー（「<」や「>」の部分）の装飾
+------------------------------*/
+.button__link--arrow::before,
+.button__link--arrowBottom::before,
+.button__link--arrowTop::before,
+.button__link--arrowLeft::before,
+.button__link--arrowLeftBottom::before,
+.button__link--arrowLeftTop::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.button__link--arrow::before {
+  right: 18px;
+}
+
+.button__link--arrowBottom::before,
+.button__link--arrowTop::before {
+  right: 15px;
+}
+
+.button__link--arrowLeft::before {
+  left: 12px;
+}
+
+.button__link--arrowLeftBottom::before,
+.button__link--arrowLeftTop::before {
+  left: 15px;
+}
+
+.button__link--arrow::before,
+.button__link--arrowLeft::before {
+  transform: rotate(45deg);
+  margin-top: -5px;
+}
+
+.button__link--arrowBottom::before,
+.button__link--arrowLeftBottom::before {
+  margin-top: -8px;
+}
+
+.button__link--arrowTop::before,
+.button__link--arrowLeftTop::before {
+  margin-top: -2px;
+}
+
+.button__link--arrowBottom::before,
+.button__link--arrowLeftBottom::before {
+  transform: rotate(135deg);
+}
+
+.button__link--arrowTop::before,
+.button__link--arrowLeftTop::before {
+  transform: rotate(-45deg);
+}
+</style>
+
+
+</body>
+</html>
