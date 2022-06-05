@@ -1474,6 +1474,30 @@ ul p {
   display: inline-block;
 }
 
+/*------------------------------
+ affiliate（アフィリエイト）
+------------------------------*/
+.affiliate {
+  margin-bottom: 30px;
+}
+
+.affiliate__link {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+.affiliate__link:hover {
+  opacity: 0.9;
+}
+
+.affiliate__image {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
 /*----------------------------------------
  SP（max-width: 767px）
 ----------------------------------------*/
