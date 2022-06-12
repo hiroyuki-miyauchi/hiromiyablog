@@ -2979,29 +2979,38 @@ code {
 /*------------------------------
  affiliate（アフィリエイト）
 ------------------------------*/
-.affiliate {
-  margin-bottom: 30px;
+.affiliate__title {
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 3px solid #202f55;
+  border-left: none;
+  background-color: #FFFFFF;
+  padding: 12px 0;
+  margin: 0 auto;
 }
 
-.affiliate__item {
-  margin-bottom: 10px;
+.affiliate__itemBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 30px 20px;
 }
 
-.affiliate__link {
-  display: block;
+.affiliate__item, .affiliate__item--space {
+  width: 300px;
   font-size: 0;
   line-height: 0;
-  text-align: center;
+  padding: 0;
+  margin-right: 50px;
+}
+.affiliate__item:nth-child(2n), .affiliate__item--space:nth-child(2n) {
+  margin-right: 0;
 }
 
-.affiliate__link:hover {
-  opacity: 0.9;
-}
-
-.affiliate__image {
-  display: inline-block;
-  width: 100%;
-  height: auto;
+.affiliate__item--space {
+  margin-bottom: 30px;
 }
 
 /*------------------------------
@@ -3098,6 +3107,28 @@ code {
     font-size: 15px;
     -webkit-line-clamp: 4;
     padding: 0;
+  }
+
+  /*------------------------------
+   affiliate（アフィリエイト）
+  ------------------------------*/
+  .affiliate__title {
+    font-size: 18px;
+  }
+
+  .affiliate__itemBox {
+    display: block;
+    padding: 20px 20px;
+  }
+
+  .affiliate__item, .affiliate__item--space {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .affiliate__item:last-child, .affiliate__item--space:last-child {
+    margin-bottom: 0;
   }
 }
 /*------------------------------

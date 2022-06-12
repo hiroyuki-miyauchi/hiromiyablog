@@ -55,6 +55,9 @@
    強調部分
   ------------------------------*/
   /*------------------------------
+   affiliate（アフィリエイト）
+  ------------------------------*/
+  /*------------------------------
    サイズ別
   ------------------------------*/
   /*------------------------------
@@ -2549,6 +2552,36 @@
   padding: 1px 5px;
   margin: 0 5px;
 }
+.content .affiliate__title {
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 3px solid #202f55;
+  border-left: none;
+  background-color: #FFFFFF;
+  padding: 12px 0;
+  margin: 0 auto;
+}
+.content .affiliate__itemBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 30px 20px;
+}
+.content .affiliate__item, .content .affiliate__item--space {
+  width: 300px;
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+  margin-right: 50px;
+}
+.content .affiliate__item:nth-child(2n), .content .affiliate__item--space:nth-child(2n) {
+  margin-right: 0;
+}
+.content .affiliate__item--space {
+  margin-bottom: 30px;
+}
 @media only screen and (min-width: 1200px) {
   .content .content iframe.googlemap {
     height: 450px;
@@ -2577,6 +2610,9 @@
      wp block 調整用CSS
     ------------------------------*/
     /* 画像＋テキストブロック */
+    /*------------------------------
+     affiliate（アフィリエイト）
+    ------------------------------*/
   }
   .content h2 {
     font-size: 20px;
@@ -2635,6 +2671,22 @@
     font-size: 15px;
     -webkit-line-clamp: 4;
     padding: 0;
+  }
+  .content .affiliate__title {
+    font-size: 18px;
+  }
+  .content .affiliate__itemBox {
+    display: block;
+    padding: 20px 20px;
+  }
+  .content .affiliate__item, .content .affiliate__item--space {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .content .affiliate__item:last-child, .content .affiliate__item--space:last-child {
+    margin-bottom: 0;
   }
 }
 @keyframes moreFadeIn {

@@ -298,6 +298,42 @@ function google_adsense_article_advertisement_horizontal_type( $atts ) {
 add_shortcode( 'google_adsense_article_advertisement', 'google_adsense_article_advertisement_horizontal_type' );
 
 /**
+ * 「A8.net」のアフィリエイトリンク
+ */
+function a8net_affiliate_link_list_advertisement_horizontal_type( $atts ) {
+  $html = '<!-- 「A8.net」のアフィリエイトリンク hiromiyablog -->' . "\n";
+  $html .= '<div class="affiliate">' . "\n";
+  $html .= '  <div class="affiliate__inner--borderBottom">' . "\n";
+  $html .= '    <h2 class="affiliate__title">初心者の方にオススメの学習サービス</h2>' . "\n";
+  $html .= '    <ul class="affiliate__itemBox">' . "\n";
+  $html .= '      <li class="affiliate__item--space">' . "\n";
+  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+B72I3E+3L4M+6RHFL" rel="nofollow">' . "\n";
+  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=220604112677&wid=002&eno=01&mid=s00000016735001136000&mc=1"></a>' . "\n";
+  $html .= '        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3NCB80+B72I3E+3L4M+6RHFL" alt="">' . "\n";
+  $html .= '      </li>' . "\n";
+  $html .= '      <li class="affiliate__item--space">' . "\n";
+  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+AEHP22+3GWO+6C9LD" rel="nofollow">' . "\n";
+  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www28.a8.net/svt/bgt?aid=220604112629&wid=002&eno=01&mid=s00000016188001065000&mc=1"></a>' . "\n";
+  $html .= '        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3NCB80+AEHP22+3GWO+6C9LD" alt="">' . "\n";
+  $html .= '      </li>' . "\n";
+  $html .= '      <li class="affiliate__item">' . "\n";
+  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+ACPE8Q+3GOM+HWPVL" rel="nofollow">' . "\n";
+  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=220604112626&wid=002&eno=01&mid=s00000016159003008000&mc=1"></a>' . "\n";
+  $html .= '        <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=3NCB80+ACPE8Q+3GOM+HWPVL" alt="">' . "\n";
+  $html .= '      </li>' . "\n";
+  $html .= '      <li class="affiliate__item">' . "\n";
+  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" rel="nofollow">' . "\n";
+  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=220604112628&wid=002&eno=01&mid=s00000023005001006000&mc=1"></a>' . "\n";
+  $html .= '        <img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" alt="">' . "\n";
+  $html .= '      </li>' . "\n";
+  $html .= '    </ul>' . "\n";
+  $html .= '  </div><!-- /.affiliate__inner -->' . "\n";
+  $html .= '</div><!-- /.affiliate -->';
+  return $html;
+}
+add_shortcode( 'a8net_affiliate_link_list_advertisement', 'a8net_affiliate_link_list_advertisement_horizontal_type' );
+
+/**
  * 「simple membership」プラグイン
  */
 
