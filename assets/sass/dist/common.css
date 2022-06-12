@@ -867,7 +867,7 @@ ul p {
     left: 0;
     background-color: white;
     transition: top 0.5s ease 0s;
-    padding-top: 70px;
+    padding: 150px 0 60px;
     -webkit-overflow-scrolling: touch;
     /* 滑らかスクロール */
     overflow-x: hidden;
@@ -1108,7 +1108,7 @@ ul p {
     transition: top 0.5s ease 0s;
     -webkit-overflow-scrolling: touch;
     /* 滑らかスクロール */
-    padding: 60px 15px;
+    padding: 150px 15px 60px;
     overflow-y: scroll;
     z-index: 200;
   }
@@ -1306,13 +1306,13 @@ ul p {
     width: 100%;
     height: auto;
     vertical-align: middle;
-    padding: 60px 15px;
+    padding: 150px 15px 60px;
   }
 
   .fixedNavigationClose {
     display: block;
     position: absolute;
-    top: 14px;
+    top: 110px;
     right: 15px;
     cursor: pointer;
   }
@@ -1481,13 +1481,26 @@ ul p {
   margin-bottom: 30px;
 }
 
+.affiliate__inner {
+  padding-bottom: 20px;
+}
+.affiliate__inner--borderBottom {
+  border-bottom: 3px solid #202f55;
+}
+
+.affiliate__item {
+  width: 100%;
+  height: auto;
+  list-style: none;
+}
+
 .affiliate__link {
   display: block;
   font-size: 0;
   line-height: 0;
   text-align: center;
+  transition: opacity 0.2s ease 0s;
 }
-
 .affiliate__link:hover {
   opacity: 0.9;
 }
@@ -1542,5 +1555,12 @@ ul p {
   ------------------------------*/
   .relatedArticle_title {
     font-size: 22px;
+  }
+
+  /*------------------------------
+   affiliate（アフィリエイト）
+  ------------------------------*/
+  .affiliate__link:hover {
+    opacity: 1;
   }
 }
