@@ -54,16 +54,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705807784297073" crossorigin="anonymous"></script>
 <!-- /Google AdSense end -->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179107583-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-179107583-3');
-</script>
-<!-- /Global site tag (gtag.js) - Google Analytics end -->
-
 <style>
 .googleAdSenseHorizontal {
   text-align: center;
