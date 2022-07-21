@@ -10,3 +10,13 @@
 <?php get_sidebar('categories'); ?>
 <?php get_sidebar('tags'); ?>
 <?php get_sidebar('affiliateBottom'); ?>
+<?php get_sidebar('archives'); ?>
+<?php
+// ウィジェットエリアにウィジェットがセットされている場合ウィジェットを読み込む
+if ( is_active_sidebar('sidenavi') ) {
+  echo '<div id="sidenavi" class="sidenavi"';
+  // ウィジェットを表示
+  dynamic_sidebar('sidenavi');
+  echo '</div>';
+}
+?>

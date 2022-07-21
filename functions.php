@@ -241,6 +241,27 @@ add_editor_style( 'assets/css/editor-style.css' );
 // }
 // add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
 
+function my_side_navigation_init () {
+  $args = [
+    // ウィジェットエリアの表示名を指定
+    'name' => 'サイドナビゲーション',
+    // ウィジェットエリアのIDを指定
+    'id' => 'sidenavi',
+    // 管理画面で表示されるウィジェットエリアの説明を指定。
+    'description' => 'サイドナビゲーションのウィジェットエリアとなります。',
+    // ウィジェットの直前に表示するHTML
+    'before_widget' => '<div id="%1$s" class="sidenavi__item %2$s">',
+    // ウィジェットの直後に表示するHTML
+    'after_widget'  => '</div>',
+    // ウィジェット内のタイトルの直前に表示するHTML
+    'before_title'  => '<h2 class="sidenavi__title">',
+    // ウィジェット内のタイトルの直後に表示するHTML
+    'after_title'   => '</h2>',
+    ];
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'my_side_navigation_init' );
+
 
 /**
  * オリジナルショートコードの作成・追加
