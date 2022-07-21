@@ -7,7 +7,7 @@
 <meta name="author" content="hiroyuki miyauchi">
 <?php if ( is_home() ) : // homeのみ読み込み ?>
   <meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
-  <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/img/home/main_visual.jpg" as="image">
+  <link rel="preload" href="https://hiromiyablog.com/wp-content/uploads/2021/06/main_visual.jpg" as="image">
 <?php else : // home以外読み込み ?>
   <?php if( get_field('keywords') ) : // カスタムフィールドの「keywords」があるか判定 ?>
   <meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,プログラミング,独学,初心者,<?php the_field('keywords'); ?>">
@@ -16,7 +16,7 @@
   <link rel="preload" href="<?php the_post_thumbnail_url(); // アイキャッチ画像のURLのみ取得 ?>" as="image">
   <?php endif; ?>
 <?php endif; ?>
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.jpg" as="image">
+<link rel="preload" href="https://hiromiyablog.com/wp-content/uploads/2021/06/logo.jpg" as="image">
 
 <?php // CSS（全ページ読み込み）
 wp_enqueue_style('hiromiyablog-default', get_template_directory_uri() . '/assets/css/default.min.css', array(), '1.0.0');
