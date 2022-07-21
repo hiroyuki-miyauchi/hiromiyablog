@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>「もっと見る」ボタン（アコーディオン）の作り方</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<div class="switching">
+  <ul class="switching__tabBox">
+    <li class="switching__tab js-switchingTab is-active">
+      <p class="switching__tabText">Tab-A</p>
+    </li>
+    <li class="switching__tab js-switchingTab">
+      <p class="switching__tabText">Tab-B</p>
+    </li>
+    <li class="switching__tab js-switchingTab">
+      <p class="switching__tabText">Tab-C</p>
+    </li> 
+  </ul><!-- /.switching__tabBox -->
+
+  <div class="switching__contentBox">
+    <div class="switching__content js-switchingContent is-active">
+      <div class="switching__contentInner">
+        <p class="switching__contentText">Content-A</p>
+      </div>
+    </div>
+    <div class="switching__content js-switchingContent">
+      <div class="switching__contentInner">
+        <p class="switching__contentText">Content-B</p>
+      </div>
+    </div>
+    <div class="switching__content js-switchingContent">
+      <div class="switching__contentInner">
+        <p class="switching__contentText">Content-C</p>
+      </div>
+    </div>
+  </div><!-- /.switching__contentBox -->
+</div><!-- /.switching -->
+
+
+<!-- CSS -->
+<style>
+/*--------------------
+ switching
+--------------------*/
+.switching__tabBox {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.switching__tab {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 33.33%;
+  min-height: 50px;
+  color: #000000;
+  list-style: none;
+  background-color: #CCCCCC;
+  border-right: 1px solid #202f55;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.switching__tab:last-child {
+  border-right: none;
+}
+
+.switching__tabText {
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+}
+
+.switching__contentBox {
+  height: calc(100vh - 50px);
+  background-color: rgba(32,47,85,.03);
+}
+
+.switching__content {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.switching__contentInner {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.switching__contentText {
+  display: table-cell;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.switching__tab.is-active {
+  color: #FFFFFF;
+  background-color: #202f55;
+  transition: all 0.2s ease 0s;
+}
+
+.switching__content.is-active {
+  display: block;
+}
+</style>
+
+
+<!-- JS -->
+<script>
+// tabs switching
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let j = 0; // 上記内処理でfor文を使用している箇所のfor文用変数定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    el.tabs = document.querySelectorAll('.js-switchingTab'); // タブのセレクタ取得
+
+    // タブ切り替え処理（クリックイベント）の実行
+    for (i = 0; i < el.tabs.length; ++i) {
+      el.tabs[i].addEventListener('click', tabSwitch, false);
+    }
+
+    function tabSwitch () {
+      el.node = Array.prototype.slice.call(el.tabs, 0);
+      el.arrayTabs = Array.prototype.slice.call(el.tabs);
+      el.index = el.arrayTabs.indexOf(this);
+
+      // 選択中タブ要素からclassの削除
+      for (j = 0; j < el.node.length; ++j) {
+        el.node[j].classList.remove('is-active');
+      }
+
+      // 選択されたタブ要素へclassの追加
+      this.classList.add('is-active');
+
+      // 表示コンテンツのclassの付与の切り替え
+      el.content = document.querySelectorAll('.js-switchingContent');
+      el.node = Array.prototype.slice.call(el.content, 0);
+
+      // すべての該当コンテンツからclassの削除（非表示にする）
+      for (j = 0; j < el.node.length; ++j) {
+        el.node[j].classList.remove('is-active');
+      }
+
+      // 選択されたタブ要素と同様のindex番号のコンテンツ要素にclassを追加（表示する）
+      el.content[el.index].classList.add('is-active');
+    };
+  }, false);
+}());
+</script>
+
+</body>
+</html>

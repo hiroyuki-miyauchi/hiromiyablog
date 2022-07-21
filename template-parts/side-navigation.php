@@ -10,4 +10,3 @@
 <?php get_sidebar('categories'); ?>
 <?php get_sidebar('tags'); ?>
 <?php get_sidebar('affiliateBottom'); ?>
-<?php get_sidebar('archives'); ?>
