@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>「もっと見る・閉じる」開閉コンテンツ（アコーディオン）の作り方</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<div class="accordion js-accordion">
+  <div class="accordion__title">
+    <p class="accordion__titleText">アコーディオンタイトル</p>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">ここにデフォルトで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <p class="accordion__text accordion__accordionMoreContent js-accordionMoreContent">ここに「もっと見る」ボタンをクリックで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <div class="accordion__button js-accordionButton">
+      <p class="accordion__buttonText is-active js-accordionButtonText">もっと見る</p>
+      <p class="accordion__buttonText js-accordionButtonText">閉じる</p>
+    </div>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-accordion">
+  <div class="accordion__title">
+    <p class="accordion__titleText">アコーディオンタイトル</p>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">ここにデフォルトで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <p class="accordion__text accordion__accordionMoreContent js-accordionMoreContent">ここに「もっと見る」ボタンをクリックで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <div class="accordion__button js-accordionButton">
+      <p class="accordion__buttonText is-active js-accordionButtonText">もっと見る</p>
+      <p class="accordion__buttonText js-accordionButtonText">閉じる</p>
+    </div>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-accordion">
+  <div class="accordion__title">
+    <p class="accordion__titleText">アコーディオンタイトル</p>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">ここにデフォルトで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <p class="accordion__text accordion__accordionMoreContent js-accordionMoreContent">ここに「もっと見る」ボタンをクリックで表示するテキストを入力します。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <div class="accordion__button js-accordionButton">
+      <p class="accordion__buttonText is-active js-accordionButtonText">もっと見る</p>
+      <p class="accordion__buttonText js-accordionButtonText">閉じる</p>
+    </div>
+  </div>
+</div><!-- /.accordion -->
+
+
+<!-- CSS -->
+<style>
+/*--------------------
+ accordion
+--------------------*/
+.accordion {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.accordion__title {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: left;
+  border: 1px solid #202f55;
+  background-color: rgba(32, 47, 85, .03);
+  box-sizing: border-box;
+}
+
+.accordion__titleText {
+  color: #333333;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 20px 40px 20px 20px;
+}
+
+.accordion__content {
+  border-color: #202f55;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  background-color: rgba(32, 47, 85, .03);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.accordion__accordionMoreContent {
+  display: none;
+}
+
+.accordion__text {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.accordion__button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.accordion__button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  transform: rotate(135deg);
+  margin-top: -8px;
+}
+
+.accordion__buttonText {
+  display: none;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #202f55;
+  border-radius: 10px;
+  transition: opacity 0.3s ease 0s;
+  padding: 12px 30px;
+  box-sizing: border-box;
+}
+
+/* is-active時（展開時）の切り替え */
+.accordion__button.is-active::before {
+  transform: rotate(-45deg);
+  margin-top: -2px;
+}
+
+.accordion__buttonText.is-active {
+  display: block;
+}
+</style>
+
+
+<!-- JS -->
+<!-- jQuery本体の読み込み -->
+<script src="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/libs/jquery-3.6.0.min.js"></script>
+
+<!-- 個別のjQueryコード -->
+<script>
+// Accordion
+$(function () {
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  // 各セレクタの取得・各種設定の値等指定
+  el.accordion = '.js-accordion'; // アコーディオンコンテンツ全体のセレクタの取得
+  el.accordionMoreContent = '.js-accordionMoreContent'; // アコーディオン開閉コンテンツのセレクタの取得
+  el.accordionButton = '.js-accordionButton'; // アコーディオンボタンのセレクタの取得
+  el.accordionButtonText = '.js-accordionButtonText'; // アコーディオンボタンテキストのセレクタ取得
+  el.isActive = 'is-active'; // アコーディオン展開時(アクティブ時)の付与するclass名を指定
+  el.slideSpeed = 500; // アコーディオン展開時(アクティブ時)の開閉速度(単位：ms)を指定
+
+  // アコーディオン開閉処理
+  $(el.accordionButton).on('click', function () {
+    $(this).parents(el.accordion).find(el.accordionMoreContent).slideToggle(el.slideSpeed); // アコーディオンボタン要素の親要素のアコーディオンコンテンツ内にある開閉コンテンツを開閉する
+    $(this).toggleClass(el.isActive); // アコーディオンボタン要素にclassを追加・削除する
+    $(this).parents(el.accordion).find(el.accordionButtonText).toggleClass(el.isActive); // アコーディオンボタンテキスト要素にclassを追加・削除する
+  });
+});
+</script>
+
+</body>
+</html>

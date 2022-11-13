@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>JavaScriptで何パーセントの確率でページを変化させる実装方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<div class="switching">
+  <div class="switching__content-box">
+    <div class="switching__content js-randomSwitching">
+      <div class="switching__content-inner">
+        <p class="switching__content-text">確率で切り替え有り</p>
+      </div>
+    </div>
+    <div class="switching__content">
+      <div class="switching__content-inner">
+        <p class="switching__content-text">確率で切り替え無し</p>
+      </div>
+    </div>
+    <div class="switching__content js-randomSwitching">
+      <div class="switching__content-inner">
+        <p class="switching__content-text">確率で切り替え有り</p>
+      </div>
+    </div>
+  </div><!-- /.switching__contentBox -->
+</div><!-- /.switching -->
+
+
+<!-- CSS -->
+<style>
+/*--------------------
+ switching
+--------------------*/
+.switching__content-box {
+  height: 100vh;
+}
+
+.switching__content {
+  width: 100%;
+  height: 33.33%;
+}
+
+.switching__content:nth-child(odd) {
+  background-color: rgba(32, 47, 85, 0.3);
+}
+
+.switching__content-inner {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.switching__content-text {
+  display: table-cell;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 切り替え後 */
+.switching__content.is-switching {
+  color: #ffffff;
+  background-color: #202f55;
+  transition: all 1s ease 0s;
+}
+</style>
+
+
+<!-- JS -->
+<script>
+// random switching
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    el.randomSwitching = document.querySelectorAll('.js-randomSwitching'); // 対象セレクタ取得
+
+    // 1～100のランダムな数値を返す
+    el.random = Math.floor(Math.random() * 100);
+
+    // ランダムな数値が何（ifの括弧の中の右の数値）以下かを判定する
+    if (el.random <= 20) {
+      randomSwitchFnc(); // 条件を満たしていればこちらの関数処理を実行する
+    } else {
+      // 条件を満たしていなければしたい処理はこちらに記述する
+    }
+
+    // ランダム切り替え用関数
+    function randomSwitchFnc () {
+      // 該当要素に切り替え用のclassを付与
+      for (i = 0; i < el.randomSwitching.length; ++i) {
+        el.randomSwitching[i].classList.add('is-switching');
+      }
+    };
+  }, false);
+}());
+</script>
+
+</body>
+</html>

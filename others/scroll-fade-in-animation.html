@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>スクロールに応じて画面内に要素が入った時にフェードインするフェードアニメーションの作り方</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<p style="width: 100%; font-size: 20px; line-height: 30px; text-align: center; margin-top: 48vh;">下にスクロールしてみてください。</p>
+
+<div class="fadeAnimation">
+  <div class="fadeAnimation__item js-fadeAnimation fadeIn">
+    <div class="fadeAnimation__itemInner">
+      <p class="fadeAnimation__text">フェードイン</p>
+    </div>
+  </div><!-- /.fadeAnimation__item -->
+
+  <div class="fadeAnimation__item js-fadeAnimation fadeUp delay04s">
+    <div class="fadeAnimation__itemInner">
+      <p class="fadeAnimation__text">フェードイン（下から上へ）</p>
+    </div>
+  </div><!-- /.fadeAnimation__item -->
+
+  <div class="fadeAnimation__item js-fadeAnimation fadeDown delay2s">
+    <div class="fadeAnimation__itemInner">
+      <p class="fadeAnimation__text">フェードイン（上から下へ）</p>
+    </div>
+  </div><!-- /.fadeAnimation__item -->
+
+  <div class="fadeAnimation__item js-fadeAnimation fadeRight delay04s">
+    <div class="fadeAnimation__itemInner">
+      <p class="fadeAnimation__text">フェードイン（左から右へ）</p>
+    </div>
+  </div><!-- /.fadeAnimation__item -->
+
+  <div class="fadeAnimation__item js-fadeAnimation fadeLeft delay04s">
+    <div class="fadeAnimation__itemInner">
+      <p class="fadeAnimation__text">フェードイン（右から左へ）</p>
+    </div>
+  </div><!-- /.fadeAnimation__item -->
+</div><!-- /.fadeAnimation -->
+
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ fadeAnimation デモ用装飾
+------------------------------*/
+.fadeAnimation {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 96%;
+  margin: 60vh auto;
+}
+
+.fadeAnimation__item {
+  width: 32%;
+  height: 40vh;
+  background-color: #202f55;
+  margin: 0 auto 60vh;
+}
+
+.fadeAnimation__itemInner {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.fadeAnimation__text {
+  display: table-cell;
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/*------------------------------
+ アニメーション
+------------------------------*/
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fadeDown {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.fadeRight {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.fadeLeft {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.delay01s {
+  animation-delay: 0.1s;
+}
+
+.delay02s {
+  animation-delay: 0.2s;
+}
+
+.delay03s {
+  animation-delay: 0.3s;
+}
+
+.delay04s {
+  animation-delay: 0.4s;
+}
+
+.delay05s {
+  animation-delay: 0.5s;
+}
+
+.delay06s {
+  animation-delay: 0.6s;
+}
+
+.delay07s {
+  animation-delay: 0.7s;
+}
+
+.delay08s {
+  animation-delay: 0.8s;
+}
+
+.delay09s {
+  animation-delay: 0.9s;
+}
+
+.delay1s {
+  animation-delay: 1s;
+}
+
+.delay2s {
+  animation-delay: 2s;
+}
+
+.fadeIn.is-animated {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeUp.is-animated {
+  animation-name: fadeUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeDown.is-animated {
+  animation-name: fadeDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeRight.is-animated {
+  animation-name: fadeRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeLeft.is-animated {
+  animation-name: fadeLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+</style>
+
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+// Scroll fade-in animation
+// (function () { // 即時実行関数（グローバル汚染対策）
+//   let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+//   el.targetElement = '.js-fadeAnimation';  // フェードアニメーション表示させる要素のセレクタ指定
+//   el.firstDisplayOnlyFlag = false; // フェードアニメーション表示を1回のみにするかの判定フラグ（true：1回のみ、false：複数回）
+
+//   $(window).on('load scroll resize', function () {
+//     $(el.targetElement).each(function () {
+//       el.targetPosition = $(this).offset().top; // 対象要素の位置を取得
+//       el.targetHeight = $(this).outerHeight(); // 対象要素のborder、paddingを含んだ高さを取得（marginも含めたい場合は「()」内に「true」を追記する）
+//       el.windowScroll = $(window).scrollTop(); // 現在のスクロール量を取得
+//       el.windowHeight = $(window).height(); // ドキュメント全体の高さ（スクロールバー含ない）を取得（表示領域部分の高さ）
+
+//       if (el.windowScroll < el.targetPosition - el.windowHeight || el.windowScroll > el.targetPosition + el.targetHeight) {
+//         // キュメント全体の高さ（スクロールバー含ない）内（表示領域）に対象要素の位置が入っていなければ処理
+//         if (!el.firstDisplayOnlyFlag) {
+//           // 判定フラグが「false（複数回）」の場合に処理
+//           $(this).removeClass('is-animated'); // フェードアニメーション表示させる要素から「is-animated」classを削除する
+//         } else {
+//           // 判定フラグが「true（1回のみ）」の場合に処理
+//           return false; // 処理を中断
+//         }
+//       } else {
+//         // キュメント全体の高さ（スクロールバー含ない）内（表示領域）に対象要素の位置が入っていれば処理
+//         $(this).addClass('is-animated'); // フェードアニメーション表示させる要素に「is-animated」classを付与する
+//       }
+//     });
+//   });
+// }());
+
+
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  // DOM読み込み後のタイミングで処理
+  document.addEventListener('DOMContentLoaded', function () {
+    el.targetElement = document.querySelectorAll('.js-fadeAnimation'); // フェードアニメーション表示させる要素のセレクタ指定
+    el.firstDisplayOnlyFlag = false; // フェードアニメーション表示を1回のみにするかの判定フラグ（true：1回のみ、false：複数回）
+  }, false);
+
+  // スクロール時の処理
+  window.addEventListener('scroll', function () {
+    scrollAnimationFnc(); // スクロールアニメーション用関数の実行
+  }, false);
+
+  // 向き切り替え（リサイズ）時の処理
+  window.addEventListener('resize', function () {
+    scrollAnimationFnc(); // スクロールアニメーション用関数の実行
+  }, false);
+
+  // スクロールアニメーション用関数
+  function scrollAnimationFnc () {
+    el.scrollValue = window.pageYOffset || document.documentElement.scrollTop; // 現在のスクロール量の取得
+    el.documentHeight = document.documentElement.clientHeight; // ドキュメント全体の高さ（スクロールバー含ない）を取得（表示領域部分の高さ）
+
+    for (i = 0; i < el.targetElement.length; ++i) {
+      el.clientRect = el.targetElement[i].getBoundingClientRect(); // 対象要素のViewpor（ビューポート）に対する相対位置に関する情報を取得
+      el.targetPosition = el.clientRect.top + el.scrollValue; // 対象要素の位置座標を取得
+      el.targetHeight = el.targetElement[i].offsetHeight; // 対象要素のborder、paddingを含んだ高さを取得
+
+      if (el.scrollValue < el.targetPosition - el.documentHeight || el.scrollValue > el.targetPosition + el.targetHeight) {
+        // ドキュメント全体の高さ（スクロールバー含ない）内（表示領域）に対象要素の位置が入っていなければ処理
+        if (!el.firstDisplayOnlyFlag) {
+          // 判定フラグが「false（複数回）」の場合に処理
+          el.targetElement[i].classList.remove('is-animated'); // 対象要素から「is-animated」classを削除する
+        } else {
+          // 判定フラグが「true（1回のみ）」の場合に処理
+          return false; // 処理を中断
+        }
+      } else {
+        // ドキュメント全体の高さ（スクロールバー含ない）内（表示領域）に対象要素の位置が入っていれば処理
+        el.targetElement[i].classList.add('is-animated'); // 対象要素に「is-animated」classを付与する
+      }
+    }
+  }
+}());
+</script>
+
+</body>
+</html>
