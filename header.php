@@ -49,9 +49,24 @@ wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/cs
 <?php if ( get_field('javascript_codes_head') ) : // Advanced Custom Fields（カスタムフィールド）の指定フィールド名に値があるか判定 ?>
 <?php the_field('javascript_codes_head') ; // Advanced Custom Fields（カスタムフィールド）の読み込み ?><?php echo "\n" ?>
 <?php endif; ?>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPD9QDD');</script>
+<!-- End Google Tag Manager -->
+
 </head>
 
 <body <?php body_class(); ?> >
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPD9QDD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <?php wp_body_open(); // body要素の直後に何かを挿入する際に使用するwp_body_openアクションを実行する ?>
 
 <header class="header">
