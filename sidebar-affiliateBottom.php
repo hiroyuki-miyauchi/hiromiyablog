@@ -23,11 +23,6 @@
           <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=3NCB80+55RAAI+47L8+691UP" alt="">
         </li>
         <li class="affiliate__item">
-          <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" rel="nofollow">
-          <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www21.a8.net/svt/bgt?aid=220604112628&wid=002&eno=01&mid=s00000023005001006000&mc=1"></a>
-          <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" alt="">
-        </li>
-        <li class="affiliate__item">
           <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3H5SN2+40ODJU+0K+10YDIP" rel="nofollow">
           <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www21.a8.net/svt/bgt?aid=210222398243&wid=002&eno=01&mid=s00000000002006207000&mc=1"></a>
           <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=3H5SN2+40ODJU+0K+10YDIP" alt="">
