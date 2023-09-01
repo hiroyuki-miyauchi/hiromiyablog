@@ -333,9 +333,9 @@ function a8net_affiliate_link_list_advertisement_horizontal_type( $atts ) {
   $html .= '        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3NCB80+AEHP22+3GWO+6C9LD" alt="">' . "\n";
   $html .= '      </li>' . "\n";
   $html .= '      <li class="affiliate__item">' . "\n";
-  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" rel="nofollow">' . "\n";
-  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www20.a8.net/svt/bgt?aid=220604112628&wid=002&eno=01&mid=s00000023005001006000&mc=1"></a>' . "\n";
-  $html .= '        <img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=3NCB80+ADW9GA+4XIA+5ZMCH" alt="">' . "\n";
+  $html .= '        <a class="affiliate__link" href="https://px.a8.net/svt/ejp?a8mat=3TH0SL+9FYJYY+407E+65U41" rel="nofollow">' . "\n";
+  $html .= '        <img class="affiliate__image" border="0" width="300" height="250" alt="" src="https://www27.a8.net/svt/bgt?aid=230901573571&wid=002&eno=01&mid=s00000018689001035000&mc=1"></a>' . "\n";
+  $html .= '        <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3TH0SL+9FYJYY+407E+65U41" alt="">' . "\n";
   $html .= '      </li>' . "\n";
   $html .= '    </ul>' . "\n";
   $html .= '  </div><!-- /.affiliate__inner -->' . "\n";
