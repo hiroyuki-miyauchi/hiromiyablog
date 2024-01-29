@@ -71,6 +71,10 @@ if ( is_home() ) {
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705807784297073" crossorigin="anonymous"></script>
 <!-- /Google AdSense end -->
 
+<!-- Google AdSense（広告ブロックによる損失収益の回復） -->
+<script async src="https://fundingchoicesmessages.google.com/i/pub-4705807784297073?ers=1" nonce="nA0kPqVINtk99xY-P846ug"></script><script nonce="nA0kPqVINtk99xY-P846ug">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+<!-- /Google AdSense end（広告ブロックによる損失収益の回復） -->
+
 <!-- twitter -->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <!-- /twitter end -->

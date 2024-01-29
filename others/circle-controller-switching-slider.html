@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>スライド毎に斜めに少しずらして配置したカード型スライダーの実装方法（複数対応・切替えアニメーション変更可）</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body style="min-height: 500vh; margin: 0; background-color: rgba(0,0,0,0.5); padding: 300px 0;">
+
+<!-- HTML -->
+<div class="slider">
+  <div class="slider__wrapper js-slider">
+    <div class="slide__image-box">
+      <img class="slide__image" src="https://market.jr-central.co.jp/cms/zairai/nanki/img/shingushi_content_01.jpg" alt="">
+    </div>
+    <div class="slide__image-box">
+      <img class="slide__image" src="https://market.jr-central.co.jp/cms/zairai/nanki/img/shingushi_content_02.jpg" alt="">
+    </div>
+    <div class="slide__image-box">
+      <img class="slide__image" src="https://market.jr-central.co.jp/cms/zairai/nanki/img/shingushi_content_03.jpg" alt="">
+    </div>
+  </div><!-- /.slider__wrapper -->
+  <div class="slider-control js-slider-control">
+    <div class="circle-control js-circle">
+      <div class="circle-control__box">
+        <svg class="circle-control__svg">
+          <circle class="circle-control__circle"></circle>
+        </svg>
+      </div>
+      <div class="circle-control__number">
+        <span class="circle-control__number-inner">0<span class="js-circle-number">1</span></span>
+      </div>
+    </div>
+  </div><!-- /.slider__content -->
+</div><!-- /.slider -->
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ slick.js調整
+------------------------------*/
+/* slick調整
+------------------------------*/
+.slick-dots li {
+  display: inline-block;
+}
+
+.slick-active button {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+/* slider
+------------------------------*/
+.slider {
+  width: 455px;
+  margin: 0 auto;
+}
+
+.slider__wrapper {
+  width: 100%;
+  min-height: 580px;
+  overflow: hidden;
+}
+
+.slider__wrapper.slick-initialized { /* SEO対策 */
+  min-height: auto;
+}
+
+.slide__image-box {
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+.slide__image {
+  display: inline-block;
+}
+
+.slider-control {
+  display: flex;
+}
+
+/* circle-control
+------------------------------*/
+.circle-control {
+  display: block;
+  height: 140px;
+  position: relative;
+  width: 140px;
+  z-index: 2;
+}
+
+.circle-control__box {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.circle-control__box::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.circle-control__svg {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  transform: scaleX(1) rotate(-90deg);
+  transform-origin: center;
+  z-index: 1;
+}
+
+.circle-control__circle {
+  stroke:#ffffff;
+  stroke-width: 3;
+  fill: transparent;
+  r: 69.5px;
+  cx: 71px;
+  cy: 71px;
+  stroke-dasharray: 437px;
+  stroke-dashoffset:437px;
+}
+
+.is-active .circle-control__circle {
+  -webkit-animation: circle_active 5s linear 0s 1 normal both;
+  animation: circle_active 5s linear 0s 1 normal both;
+}
+
+.is-change .circle-control__svg {
+  transform: scaleX(-1) rotate(-90deg);
+}
+
+.is-change .circle-control__circle {
+  -webkit-animation: circle_change .75s cubic-bezier(.19,1,.22,1) 0s 1 normal both;
+  animation: circle_change .75s cubic-bezier(.19,1,.22,1) 0s 1 normal both;
+}
+
+.circle-control__number {
+  display: block;
+  position: absolute;
+  top: 34px;
+  left: 45px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+
+.circle-control__number-inner {
+  font-size: 22px;
+  letter-spacing: .1em;
+  line-height: 22px;
+  text-align: left;
+}
+
+/* keyframes */
+@-webkit-keyframes circle_active {
+  0% {
+    stroke-dashoffset: 437px
+  }
+
+  to {
+    stroke-dashoffset: 0px
+  }
+}
+
+@keyframes circle_active {
+  0% {
+    stroke-dashoffset: 437px
+  }
+
+  to {
+    stroke-dashoffset: 0px
+  }
+}
+
+@keyframes circle_change {
+  0% {
+    stroke-dashoffset: 0px
+  }
+
+  to {
+    stroke-dashoffset: 437px
+  }
+}
+
+@keyframes circle_active_sp {
+  0% {
+    stroke-dashoffset: 330px
+  }
+
+  to {
+    stroke-dashoffset: 0px
+  }
+}
+
+@keyframes circle_change_sp {
+  0% {
+    stroke-dashoffset: 0px
+  }
+
+  to {
+    stroke-dashoffset: 330px
+  }
+}
+</style>
+
+<!-- JS -->
+<!-- jQuery本体の読み込み -->
+<script src="https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/libs/jquery-3.6.0.min.js"></script>
+
+<script>
+(function () { // 即時実行関数（グローバル汚染対策）
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  // 各種値の指定
+  el.slick = jQuery('.js-slider');
+  el.circle = jQuery('.js-circle');
+  el.circleNumber = jQuery('.js-circle-number');
+  el.sliderControl = '.js-slider-control';
+  el.activeClass = 'is-active';
+  el.changeClass = 'is-change';
+  el.autoSpeedValue = 5000;
+
+  // DOM・画像含め読み込み後の処理
+  jQuery(window).on('load', function() {
+    // 初期読み込み時の処理
+    slickFnc();
+  });
+
+  // slick.js（スライダー部分）
+  function slickFnc () {
+    // slick.jsの実行
+    el.slick.slick({
+      dots: true,
+      pauseOnDotsHover: false,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      autoplay: true,
+      autoplaySpeed: el.autoSpeedValue,
+      arrows: false
+    });
+
+    jQuery('.slick-dots').prependTo(el.sliderControl);
+
+    // circleのアニメーション実行
+    el.circle.addClass(el.activeClass);
+
+    el.slick.on('afterChange', function(event, slick, currentSlide, nextSlide) {
+      // スライドが切り替わった後に実行する処理
+      el.circle.removeClass(el.changeClass);
+      el.circle.addClass(el.activeClass);
+    });
+
+    el.slick.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      //スライドが切り替わる直前に実行する処理を書く
+      el.circle.removeClass(el.activeClass);
+      el.circle.addClass(el.changeClass);
+      el.circleNumber.text(nextSlide + 1);
+    });
+  }
+
+}());
+</script>
+
+</body>
+</html>

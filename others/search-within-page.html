@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>ページ内検索（検索ボタン押し下し時およびキーワード入力完了時）</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body style="overflow-y: scroll;">
+
+<!-- HTML -->
+<div class="keyword-search">
+  <div class="keyword-search__inner">
+    <form name="keyword-search__form" class="keyword-search__form">
+      <input type="text" id="keyword-search-text" class="keyword-search__text js-keyword-search-value" placeholder="ページ内キーワード検索">
+      <input type="text" name="dummy" style="display: none;">
+      <button type="button" class="keyword-search__button js-keyword-search-button">検索</button>
+    </form>
+  </div>
+</div><!-- /.keyword-search -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.菓子・スイーツ</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.ごはんのお供</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.おつまみ</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.その他食品</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.お酒</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.その他飲料</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.鉄道グッズ</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.その他雑貨</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.店舗受取</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.期間限定</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+<div class="accordion js-keyword-search-item">
+  <div class="accordion__button js-accordion-button">
+    <p class="accordion__button-text js-keyword-search-target">Q.体験・イベント</p>
+    <span class="accordion__button-icon"></span>
+  </div>
+  <div class="accordion__content">
+    <p class="accordion__text">A.テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </div>
+</div><!-- /.accordion -->
+
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ keyword-search
+------------------------------*/
+.keyword-search {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto 0;
+}
+
+.keyword-search__inner {
+  width: 100%;
+}
+
+.keyword-search__form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.keyword-search__text {
+  display: block;
+  width: calc(100% - 100px);
+  color: #333333;
+  font-size: 16px;
+  line-height: 50px;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px 0px 0px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.keyword-search__button {
+  display: block;
+  width: 100px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  background-color: #313131;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/*------------------------------
+ accordion
+------------------------------*/
+.accordion {
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.accordion__button {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: left;
+  border: 1px solid #202f55;
+  background-color: rgba(32, 47, 85, .03);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.accordion__button-text {
+  color: #333333;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 20px 40px 20px 20px;
+  margin: 0;
+}
+
+.accordion__button-icon {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translatey(-50%);
+}
+
+.accordion__button-icon::before,
+.accordion__button-icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #333333;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease 0s;
+}
+
+.accordion__button-icon::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* is-open時の切り替え（＋、－） */
+.accordion__button.is-open .accordion__button-icon::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.accordion__content {
+  display: none;
+  border-color: #202f55;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  background-color: rgba(32, 47, 85, .03);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.accordion__text {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+</style>
+
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+// Accordion button
+$(function () {
+  $('.js-accordion-button').click(function () {
+    $(this).next('.accordion__content').slideToggle(); // アコーディオンボタン要素の次にあるコンテンツを開閉する
+    $(this).toggleClass('is-open'); // アコーディオンボタン要素にclassを追加する
+  });
+});
+</script>
+
+<script>
+// ページ内キーワード検索
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let j = 0; // 上記内処理でfor文を使用している箇所のfor文用変数定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    el.keywordSearchValue = document.querySelectorAll('.js-keyword-search-value'); // 検索キーワード取得先のセレクタ取得
+    el.keywordSearchButton = document.querySelectorAll('.js-keyword-search-button'); // 検索ボタンのセレクタ取得
+    el.keywordSearchItem = document.querySelectorAll('.js-keyword-search-item'); // 検索対象コンテンツのセレクタ取得
+
+    // 必須要素があるか判定
+    if(el.keywordSearchValue.length && el.keywordSearchButton.length && el.keywordSearchItem.length) {
+      keywordSearchFnc(); // ページ内キーワード検索用関数の実行
+    }
+  }, false);
+
+  // ページ内キーワード検索用関数
+  function keywordSearchFnc () {
+    // ページ内キーワード検索結果反映処理の実行
+    // 検索ボタンクリック時のイベント処理
+    for (i = 0; i < el.keywordSearchButton.length; ++i) {
+      el.keywordSearchButton[i].addEventListener('click', keywordSearchSwitchFnc, false);
+    }
+
+    // 検索キーワード入力時のイベント処理
+    for (i = 0; i < el.keywordSearchValue.length; ++i) {
+      el.keywordSearchValue[i].addEventListener('change', keywordSearchSwitchFnc, false);
+    }
+
+    // ページ内キーワード検索結果反映用関数
+    function keywordSearchSwitchFnc () {
+      el.searchValue = el.keywordSearchValue[0].value; // 検索キーワードを取得
+
+      // 検索キーワードが入力されているか判定
+      if (el.searchValue.length) {
+        // すべてのコンテンツを非表示
+        for (j = 0; j < el.keywordSearchItem.length; ++j) {
+          el.keywordSearchItem[j].style.display = 'none'; // 各該当要素を非表示にする
+        }
+
+        // 該当コンテンツのみを表示
+        for (j = 0; j < el.keywordSearchItem.length; ++j) {
+          el.searchTarget = el.keywordSearchItem[j].querySelector('.js-keyword-search-target').textContent; // 検索対象のテキスト取得
+
+          // 該当の文字列があるか判定（部分一致）
+          if (el.searchTarget.indexOf(el.searchValue) !== -1) {
+            el.keywordSearchItem[j].style.display = 'block'; // 各該当要素を表示する
+          }
+        }
+      } else {
+        // すべてのコンテンツを表示
+        for (j = 0; j < el.keywordSearchItem.length; ++j) {
+          el.keywordSearchItem[j].style.display = 'block'; // 各該当要素を表示する
+        }
+      }
+    };
+  }
+}());
+</script>
+
+</body>
+</html>
