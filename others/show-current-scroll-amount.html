@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>スライド毎に斜めに少しずらして配置したカード型スライダーの実装方法（複数対応・切替えアニメーション変更可）</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body style="height: 500vh;">
+
+<!-- HTML -->
+<div class="current-scroll-amount">
+  <div class="current-scroll-amount__item">
+    <div class="current-scroll-amount__item-inner">
+      <span class="current-scroll-amount__line">
+        <span class="current-scroll-amount__line-inner js-currentScrollLine"></span>
+      </span>
+      <span class="current-scroll-amount__text">
+        全体の<span class="current-scroll-amount__value js-currentScrollValue">0</span>%進んだよ
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ current-scroll-amount
+------------------------------*/
+.current-scroll-amount {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  z-index: 1;
+}
+
+.current-scroll-amount__item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.current-scroll-amount__item-inner {
+  display: block;
+}
+
+.current-scroll-amount__line {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.current-scroll-amount__line-inner {
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 50px;
+  will-change: width;
+}
+
+.current-scroll-amount__text {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.current-scroll-amount__value {
+  display: inline-block;
+  text-align: center;
+  min-width: 3em;
+  margin: 0 2px;
+}
+</style>
+
+<!-- JS -->
+<script>
+// 現在のスクロール量がページの何％進んだか表示させる処理
+(function () { // 即時実行関数（グローバル汚染対策）
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    el.currentScrollValue = document.querySelector('.js-currentScrollValue'); // スクロール量を表示させたいセレクタを取得（数値表示タイプ側）
+    el.currentScrollLine = document.querySelector('.js-currentScrollLine'); // スクロール量を表示させたいセレクタを取得（プログレスバータイプ側）
+  }, false);
+
+  // スクロールイベント処理
+  window.addEventListener('scroll', function () {
+    el.percentConfirm = scrollValueFnc(); // スクロール量(%)を変数に格納
+
+    // スクロール量(%)を表示させる要素があるか判定（数値表示タイプ側）
+    if (el.currentScrollValue) {
+      el.currentScrollValue.textContent = el.percentConfirm; // スクロール量(%)の値をテキストに反映
+    }
+
+    // スクロール量(%)を表示させる要素があるか判定（プログレスバータイプ側）
+    if (el.currentScrollLine) {
+      el.currentScrollLine.style.width = el.percentConfirm + '%'; // スクロール量(%)の値を幅に反映
+    }
+  });
+
+  // 全体の何％スクロールしたかの数値を取得する用関数
+  function scrollValueFnc () {
+    el.scrollPx = document.documentElement.scrollTop; // スクロール量（px）
+    el.hiddenHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; // まだスクロールされていない部分の高さ
+    el.scrollValue = Math.round((el.scrollPx / el.hiddenHeight) * 100); // スクロール量(%)
+
+    return el.scrollValue; // スクロール量(%)の値を返す
+  }
+}());
+</script>
+
+</body>
+</html>

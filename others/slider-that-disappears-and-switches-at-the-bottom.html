@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>スライド毎に斜めに少しずらして配置したカード型スライダーの実装方法（複数対応・切替えアニメーション変更可）</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body style="margin-top: 200px;">
+
+<!-- HTML -->
+
+<!-- スライダーセット1 -->
+<div class="bottom-slider js-bottom-slider">
+  <div class="bottom-slider__wrapper">
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー1（セット1）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー2（セット1）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー3（セット1）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー4（セット1）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー5（セット1）</span></div>
+  </div>
+  <div class="bottom-slider__button-box">
+    <div class="bottom-slider__button-prev js-button-prev"></div>
+    <div class="bottom-slider__button-next js-button-next"></div>
+  </div>
+</div>
+<!-- /スライダーセット1 -->
+
+<!-- スライダーセット2 -->
+<div class="bottom-slider js-bottom-slider">
+  <div class="bottom-slider__wrapper">
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー1（セット2）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー2（セット2）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー3（セット2）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー4（セット2）</span></div>
+    <div class="bottom-slider__slide js-slide-item"><span>スライダー5（セット2）</span></div>
+  </div>
+  <div class="bottom-slider__button-box">
+    <div class="bottom-slider__button-prev js-button-prev"></div>
+    <div class="bottom-slider__button-next js-button-next"></div>
+  </div>
+</div>
+<!-- /スライダーセット2 -->
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ slider
+------------------------------*/
+.bottom-slider {
+  position: relative;
+  width: 50%;
+  height: 70vh;
+  margin: 0 auto 300px;
+  z-index: 1;
+}
+
+.bottom-slider__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.bottom-slider__slide {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  transform-origin: top right;
+  transform-style: preserve-3d;
+  transition: all 0.6s ease 0s;
+  padding: 0 40px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.bottom-slider__slide:nth-child(1) {
+  background-color: #000000;
+}
+
+.bottom-slider__slide:nth-child(2) {
+  background-color: gray;
+}
+
+.bottom-slider__slide:nth-child(3) {
+  background-color: green;
+}
+
+.bottom-slider__slide:nth-child(4) {
+  background-color: blue;
+}
+
+.bottom-slider__slide:nth-child(5) {
+  background-color: burlywood;
+}
+
+.bottom-slider__button-box {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 24px;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.bottom-slider__button-prev,
+.bottom-slider__button-next {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+.bottom-slider__button-prev {
+  left: 25px;
+  transform: rotate(-135deg);
+}
+
+.bottom-slider__button-next {
+  right: 25px;
+  transform: rotate(45deg);
+}
+
+/* is-bottom-slide */
+.bottom-slider__slide.is-bottom-slide {
+  transform: translate(0, 110%) !important;
+  opacity: 0;
+}
+</style>
+
+<!-- JS -->
+<script>
+// スライド毎に斜めに少しずらして配置したカード型スライダーの実装処理
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let j = 0; // 上記内処理でfor文を使用している箇所のfor文用変数定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // 各種セレクタ・値の設定 ※アニメーションの速度などはCSS側で指定
+    el.bottomSlider = document.querySelectorAll('.js-bottom-slider'); // スライダーのセレクタを取得
+    el.slideItemElement = '.js-slide-item'; // スライドアイテムのセレクタを指定
+    el.buttonPrevElement = '.js-button-prev'; // 前へボタンのセレクタを指定
+    el.buttonNextElement = '.js-button-next'; // 次へボタンのセレクタを指定
+    el.slideAnimationClass = 'is-bottom-slide'; // スライドアニメーション用のclass名を指定（下にスライドさせている箇所で使用）
+    el.xSetValue = 50; // x軸の基礎値を設定（x軸のスライド毎のずらし値）
+    el.ySetValue = -30; // y軸の基礎値を設定（y軸のスライド毎のずらし値）
+    el.unitSetValue = 'px'; // x・y軸の基礎値の単位の設定（例：px、%、vw、vhなど）
+    el.arrowDisplayHideFlag = true; // 次へ・前へボタンの前と次のスライドがない場合、スライドボタンの表示・非表示をするかを指定（true：表示・非表示切り替えする、false：表示・非表示切り替えしない）
+
+    // スライダー要素があるか判定
+    if (el.bottomSlider.length && document.querySelectorAll(el.slideItemElement).length && document.querySelectorAll(el.buttonPrevElement).length && document.querySelectorAll(el.buttonNextElement).length) {
+      // スライダーを初期化
+      el.bottomSlideInitializationFnc(); // スライド初期化用関数の実行
+
+      // 前へボタンのイベント処理
+      for (i = 0; i < document.querySelectorAll(el.buttonPrevElement).length; ++i) {
+        document.querySelectorAll(el.buttonPrevElement)[i].addEventListener('click', {
+          // 引数と関数をオブジェクトにして渡す
+          targetIndex: i, // 現在の該当要素が何番目かの情報を指定
+          handleEvent: el.bottomSliderPrevFnc // 実行する関数を指定
+        }, false);
+      }
+
+      // 次へボタンのイベント処理
+      for (i = 0; i < document.querySelectorAll(el.buttonNextElement).length; ++i) {
+        document.querySelectorAll(el.buttonNextElement)[i].addEventListener('click', {
+          // 引数と関数をオブジェクトにして渡す
+          targetIndex: i, // 現在の該当要素が何番目かの情報を指定
+          handleEvent: el.bottomSliderNextFnc // 実行する関数を指定
+        }, false);
+      }
+    } else {
+      return; // 現在このreturnが存在している関数の処理を値を返しつつ止める。
+    }
+  }, false);
+
+  // スライド初期化用関数
+  el.bottomSlideInitializationFnc = function () {
+    for (i = 0; i < el.bottomSlider.length; ++i) {
+      el.initialSlideItem = el.bottomSlider[i].querySelectorAll(el.slideItemElement); // 各スライダーの初期スライド要素を取得
+
+      el.bottomSlider[i].querySelector(el.buttonPrevElement).dataset.slideCurrent = 0; // 指定したデータ属性値を設定
+      el.bottomSlider[i].querySelector(el.buttonNextElement).dataset.slideCurrent = 0; // 指定したデータ属性値を設定
+
+      // 次へ・前へボタンの前と次のスライドがない場合、表示・非表示をするかの判定フラグが「true」か判定
+      if (el.arrowDisplayHideFlag) {
+        el.bottomSlider[i].querySelector(el.buttonPrevElement).style.display = 'none'; // 前へボタン非表示
+      }
+
+      // 該当要素数分処理
+      for (j = 0; j < el.initialSlideItem.length; ++j) {
+        // 条件を満たしているか判定
+        if (j === 0) {
+          el.xValue = 0; // x軸の初期位置の座標を指定
+          el.yValue = 0; // y軸の初期位置の座標を指定
+        } else {
+          el.xValue = el.xSetValue * j; // x軸の基礎値を調整し設定
+          el.yValue = el.ySetValue * j; // y軸の基礎値を調整し設定
+        }
+
+        el.zIndexValue = el.initialSlideItem.length - j; // z-index値の調整
+        el.cssStyles = 'transform: translate(' + el.xValue + el.unitSetValue + ', ' + el.yValue + el.unitSetValue + ');' + ' z-index: ' + el.zIndexValue + ';'; // style値を設定
+        el.initialSlideItem[j].style.cssText = el.cssStyles; // 指定要素にstyleを設定
+      }
+    }
+  }
+
+  // 「前へ」スライド実行用関数
+  el.bottomSliderPrevFnc = function () {
+    el.targetIndex = this.targetIndex; // 現在の該当要素が何番目かの情報を変数に格納
+    el.slideCurrent = el.bottomSlider[el.targetIndex].querySelector(el.buttonPrevElement).dataset.slideCurrent; // 現在index番号を取得
+    el.slideCurrentAfter = parseInt(el.slideCurrent, 10); // 文字列を整数に変換（小数点以下を切り捨てる）
+
+    // 条件を満たしているか判定
+    if (el.slideCurrentAfter === 0) {
+      return; // 現在このreturnが存在している関数の処理を値を返しつつ止める。
+    } else {
+      el.bottomSlider[el.targetIndex].querySelector(el.buttonPrevElement).dataset.slideCurrent = el.slideCurrentAfter - 1; // 指定したデータ属性値を設定
+      el.bottomSlider[el.targetIndex].querySelector(el.buttonNextElement).dataset.slideCurrent = el.slideCurrentAfter - 1; // 指定したデータ属性値を設定
+      el.bottomSlider[el.targetIndex].querySelectorAll(el.slideItemElement)[el.slideCurrent - 1].classList.remove(el.slideAnimationClass); // 指定要素にclassを付与
+    }
+
+    el.slideItemActive = el.bottomSlider[el.targetIndex].querySelectorAll(el.slideItemElement + ':not(.' + el.slideAnimationClass + ')'); // 現在表示中のセレクタを取得
+
+    el.bottomSlideFnc(el.slideItemActive, el.targetIndex); // スライド実行用関数の実行
+  }
+
+  // 「次へ」スライド実行用関数
+  el.bottomSliderNextFnc = function () {
+    el.targetIndex = this.targetIndex; // 現在の該当要素が何番目かの情報を変数に格納
+    el.slideCurrent = el.bottomSlider[el.targetIndex].querySelector(el.buttonNextElement).dataset.slideCurrent; // 現在index番号を取得
+    el.slideCurrentAfter = parseInt(el.slideCurrent, 10); // 文字列を整数に変換（小数点以下を切り捨てる）
+
+    // 条件を満たしているか判定
+    if (el.bottomSlider[el.targetIndex].querySelectorAll(el.slideItemElement).length === el.slideCurrentAfter + 1) {
+      return; // 現在このreturnが存在している関数の処理を値を返しつつ止める。
+    } else {
+      el.bottomSlider[el.targetIndex].querySelector(el.buttonPrevElement).dataset.slideCurrent = el.slideCurrentAfter + 1; // 指定したデータ属性値を設定
+      el.bottomSlider[el.targetIndex].querySelector(el.buttonNextElement).dataset.slideCurrent = el.slideCurrentAfter + 1; // 指定したデータ属性値を設定
+      el.bottomSlider[el.targetIndex].querySelectorAll(el.slideItemElement)[el.slideCurrent].classList.add(el.slideAnimationClass); // 指定要素にclassを付与
+    }
+
+    el.slideItemActive = el.bottomSlider[el.targetIndex].querySelectorAll(el.slideItemElement + ':not(.' + el.slideAnimationClass + ')'); // 現在表示中のセレクタを取得
+
+    el.bottomSlideFnc(el.slideItemActive, el.targetIndex); // スライド実行用関数の実行
+  }
+
+  // スライド実行用関数
+  el.bottomSlideFnc = function (slideItem, targetIndex) {
+    // 次へ・前へボタンの前と次のスライドがない場合、表示・非表示をするかの判定フラグが「true」か判定
+    if (el.arrowDisplayHideFlag) {
+      // 1番目のスライダーかを判定
+      if (el.bottomSlider[targetIndex].querySelectorAll(el.slideItemElement).length - slideItem.length === 0) {
+        el.bottomSlider[targetIndex].querySelector(el.buttonPrevElement).style.display = 'none'; // 前へボタン非表示
+      } else {
+        el.bottomSlider[targetIndex].querySelector(el.buttonPrevElement).style.display = 'block'; // 前へボタン表示
+      }
+
+      // 最後から2番目のスライダーかを判定
+      if (slideItem.length - 1 === 0) {
+        el.bottomSlider[targetIndex].querySelector(el.buttonNextElement).style.display = 'none'; // 次へボタン非表示
+      } else {
+        el.bottomSlider[targetIndex].querySelector(el.buttonNextElement).style.display = 'block'; // 次へボタン表示
+      }
+    }
+
+    // 該当要素数分処理
+    for (i = 0; i < slideItem.length; ++i) {
+      // 条件を満たしているか判定
+      if (i === 0) {
+        el.xValue = 0; // x軸の初期位置の座標を指定
+        el.yValue = 0; // y軸の初期位置の座標を指定
+      } else {
+        el.xValue = el.xSetValue * i; // x軸の基礎値を調整し設定
+        el.yValue = el.ySetValue * i; // y軸の基礎値を調整し設定
+      }
+
+      el.zIndexValue = slideItem.length - i; // z-index値の調整
+      el.cssStyles = 'transform: translate(' + el.xValue + el.unitSetValue + ', ' + el.yValue + el.unitSetValue + ');' + ' z-index: ' + el.zIndexValue + ';'; // style値を設定
+      slideItem[i].style.cssText = el.cssStyles; // 指定要素にstyleを設定
+    }
+  }
+}());
+</script>
+
+</body>
+</html>
