@@ -117,7 +117,7 @@
     // 各セレクタの指定
     el.clipboardButton = document.querySelectorAll('.js-clipboard-button'); // クリップボードコピーボタンのセレクタを指定
     el.clipboardText = document.querySelectorAll('.js-clipboard-text'); // クリップボードにコピーしたいテキストのセレクタを指定
-    el.clipboardChangeText = document.querySelectorAll('.js-clipboard-text-change'); // クリップボードコピーボタンのセレクタを指定
+    el.clipboardChangeText = document.querySelectorAll('.js-clipboard-text-change'); // クリップボードコピーボタンテキストの切り替えのセレクタを指定
 
     // コピー完了時の各種指定
     el.textChangeFlag = true; // コピー完了テキストに書き換えるかを指定（書き換える：true、書き換えない：false）
@@ -168,6 +168,10 @@
       setTimeout(function () {
         el.clipboardChangeText[el.targetIndex].classList.remove(el.textChangeClass); // コピー完了テキスト変更時のclassを削除
         el.clipboardChangeText[el.targetIndex].textContent = el.currentChangeText; // コピー完了後テキストに書き換え
+        el.activeFlag = false; // 処理を実行判定フラグを初期値に設定
+      }, el.textChangeDelay);
+    } else {
+      setTimeout(function () {
         el.activeFlag = false; // 処理を実行判定フラグを初期値に設定
       }, el.textChangeDelay);
     }
