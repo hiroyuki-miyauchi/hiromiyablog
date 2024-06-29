@@ -244,7 +244,7 @@ add_editor_style( 'assets/css/editor-style.css' );
 function my_side_navigation_init () {
   $args = [
     // ウィジェットエリアの表示名を指定
-    'name' => 'サイドナビゲーション',
+    'name' => '【HMS】サイドナビゲーション',
     // ウィジェットエリアのIDを指定
     'id' => 'sidenavi',
     // 管理画面で表示されるウィジェットエリアの説明を指定。
