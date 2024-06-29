@@ -2138,6 +2138,15 @@
   max-width: 100%;
   height: auto;
 }
+.content .hm-article__main-thumbnail {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+.content .hm-article__main-thumbnail-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
 .content table {
   width: 100%;
   min-width: 767px;

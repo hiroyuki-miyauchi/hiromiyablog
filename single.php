@@ -21,6 +21,20 @@
 
               <div class="article_body">
                 <div class="content">
+                  <figure class="hm-article__main-thumbnail">
+                    <?php // アイキャッチ画像の表示
+                    // the_title( '<h1>', '</h1>' ); /* 記事タイトルの表示（h1で囲む）*/
+                    if( has_post_thumbnail() ) { // アイキャッチ画像が設定されているかの判定
+                      the_post_thumbnail(
+                        'full', // 任意の画像サイズ
+                        array(
+                          'class' => 'hm-article__main-thumbnail-image', /* 任意のクラス名 */
+                          'id'    => 'my-article-main-thumbnail-image' /* 任意のid名 */
+                        )
+                      ); // アイキャッチ画像をimgタグで表示
+                    }
+                    ?>
+                  </figure>
                   <?php the_content(); // 記事の本文すべて、または一部を表示する（引数１：ページを分割したいときに表示される区切りの文字。省略時は（more…）が表示される、引数２：ページを分割するかどうか。trueで分割、falseで分割しない（省略時はfalse）、引数３：現バージョンでは使われていない） ?>
                 </div>
               </div>
