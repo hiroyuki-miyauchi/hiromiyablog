@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="hiroyuki miyauchi">
+<title>JavaScriptで何パーセントの確率でページを変化させる実装方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="hiromiyablog,hiromiya,ヒロミヤ,blog,html,css,javascript,jquery,wordpress,プログラミング,独学,初心者,経験,復習,学び,備忘録">
+<link rel="canonical" href="https://hiromiyablog.com/" />
+<link rel='stylesheet' id='hiromiyablog-default-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/default.min.css' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='hiromiyablog-common-css' href='https://hiromiyablog.com/wp-content/themes/hiromiyablog/assets/css/common.min.css' type='text/css' media='all' /> -->
+
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/hiromiyablog.com/wp-content/uploads/2021/06/cropped-logo.jpg?fit=270%2C270&#038;ssl=1" />
+</head>
+<body>
+
+
+<!-- HTML -->
+<div class="accordion">
+  <div class="accordion__include js-include-accordion js-scroll-control">
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-1-1</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 1-1</p>
+        <p class="accordion__contents-text">List 1-2</p>
+        <p class="accordion__contents-text">List 1-3</p>
+      </div>
+    </div>
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-1-2</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 2-1</p>
+        <p class="accordion__contents-text">List 2-2</p>
+        <p class="accordion__contents-text">List 2-3</p>
+      </div>
+    </div>
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-1-3</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 3-1</p>
+        <p class="accordion__contents-text">List 3-2</p>
+        <p class="accordion__contents-text">List 3-3</p>
+      </div>
+    </div>
+  </div>
+    
+  <div class="accordion__include js-include-accordion js-scroll-control">
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-2-1</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 1-1</p>
+        <p class="accordion__contents-text">List 1-2</p>
+        <p class="accordion__contents-text">List 1-3</p>
+      </div>
+    </div>
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-2-2</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 2-1</p>
+        <p class="accordion__contents-text">List 2-2</p>
+        <p class="accordion__contents-text">List 2-3</p>
+      </div>
+    </div>
+    <div class="accordion__wrap js-accordion-native-wrap">
+      <button class="accordion__native-button js-accordion-native-button" type="button">Menu-2-3</button>
+      <div class="accordion__contents js-accordion-native-contents">
+        <p class="accordion__contents-text">List 3-1</p>
+        <p class="accordion__contents-text">List 3-2</p>
+        <p class="accordion__contents-text">List 3-3</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CSS -->
+<style>
+/*------------------------------
+ アコーディオン
+------------------------------*/
+.accordion {
+  width: 100%;
+}
+
+.accordion__include {
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #35924A;
+  padding: 0;
+}
+
+.accordion__include:nth-of-type(2) {
+  background-color: #202f55;
+}
+
+.accordion__include.is-active {
+  overflow-y: auto;
+}
+
+.accordion__wrap {
+  width: 100%;
+}
+
+.accordion__contents {
+  height: 0;
+  padding: 0;
+  border-top: 1px solid #67a863;
+  background-color: #5EAA6C;
+  transition: 0.5s;
+  margin: 0;
+  overflow: hidden;
+}
+
+.accordion__include:nth-of-type(2) .accordion__contents {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.accordion__native-button {
+  position: relative;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 1em;
+  text-align: left;
+  background-color: inherit;
+  border: none;
+  padding: 15px 0 15px 20px;
+  cursor: pointer;
+}
+
+.accordion__native-button:hover {
+  background-color: #1A5B27;
+}
+
+.accordion__include:nth-of-type(2) .accordion__native-button:hover {
+  background-color: rgba(32, 47, 85, 0.5);
+}
+
+.accordion__native-button::before,
+.accordion__native-button::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 1.5px;
+  height: 8px;
+  background-color: #FFFFFF;
+  transition: 0.5s;
+}
+
+.accordion__native-button::before {
+  right: 35px;
+  transform: rotate(-45deg);
+}
+
+.accordion__native-button::after {
+  right: 30px;
+  transform: rotate(45deg);
+}
+
+.accordion__wrap.is-active .accordion__native-button::before {
+  transform: rotate(-135deg);
+  transition: 0.5s;
+}
+
+.accordion__wrap.is-active .accordion__native-button::after {
+  transform: rotate(135deg);
+  transition: 0.5s;
+}
+
+.accordion__contents-text {
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+
+<!-- JS -->
+<script>
+// clipboard copy
+(function () { // 即時実行関数（グローバル汚染対策）
+  let i = 0; // for文用変数の定義
+  let el = {}; // 配列・変数用（巻き上げ防止の為、冒頭にて宣言）
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // 各セレクタの指定
+    // el.clipboardButton = document.querySelectorAll('.js-clipboard-button'); // クリップボードコピーボタンのセレクタを指定
+    // el.clipboardText = document.querySelectorAll('.js-clipboard-text'); // クリップボードにコピーしたいテキストのセレクタを指定
+    // el.clipboardChangeText = document.querySelectorAll('.js-clipboard-text-change'); // クリップボードコピーボタンテキストの切り替えのセレクタを指定
+
+    // // コピー完了時の各種指定
+    // el.textChangeFlag = true; // コピー完了テキストに書き換えるかを指定（書き換える：true、書き換えない：false）
+    // el.textChangeClass = 'is-text-change'; // コピー完了テキスト変更時のclass指定
+    // el.completionText = 'クリップボードにコピーしました'; // コピー完了時のテキストを指定
+    // el.textReturnToInitialFlag = true; // コピー完了後テキストを一定時間後に書き換え前の状態に戻すか指定（戻す：true、戻さない：false）
+    // el.textChangeDelay = 3000; // 書き換え前のテキストに戻すまでの間隔（遅延）を指定（ms）
+
+    // // クリップボードコピーボタンのイベント処理
+    // for (i = 0; i < el.clipboardButton.length; ++i) {
+    //   el.clipboardButton[i].addEventListener('click', {
+    //     // 引数と関数をオブジェクトにして渡す
+    //     targetIndex: i, // 現在の該当要素が何番目かの情報を指定
+    //     textChangeFlag: el.textChangeFlag, // コピー完了後テキストに書き換えを指定
+    //     textReturnToInitialFlag: el.textReturnToInitialFlag, // 一定時間後に書き換え前の状態に戻すか指定
+    //     handleEvent: el.clipBoardCopyFnc // 実行する関数を指定
+    //   });
+    // }
+    accordionNativeFnc();
+  }, false);
+
+  // アコーディオン用関数
+  function accordionNativeFnc () {
+    el.accordionNativeActiveIndex = null; //開いているアコーディオン用の変数を定義
+
+    //アコーディオンコンテナ全てで実行
+    el.accordionNatives = document.querySelectorAll('.js-include-accordion');
+
+    el.accordionNatives.forEach(function (accordion, index) {
+      //アコーディオンボタン全てで実行
+      const accordionBtns = accordion.querySelectorAll('.js-accordion-native-button'); // アコーディオンボタン要素を取得
+
+      accordionBtns.forEach(function (accordionBtn, index) {
+        accordionBtn.addEventListener('click', function(e) {
+          el.accordionNativeActiveIndex = index; // クリックされたボタンを把握
+          el.accordionNativeIsActive = e.target.closest('.js-accordion-native-wrap').classList.toggle('is-active'); // ボタンの親要素（wrap）にclassを付与／削除
+          accordionBtn.setAttribute('data-aria-expanded', el.accordionNativeIsActive ? 'true' : 'false'); // WAI-ARIA対応、開いた状態かどうかを示す
+          el.accordionNativeContent = accordionBtn.closest('.js-accordion-native-wrap').querySelector('.js-accordion-native-contents'); // ボタンのあるセット内のアコーディオンコンテンツ要素を取得
+
+          // class名がactive（＝閉じていた）かを判定
+          if (el.accordionNativeIsActive) {
+            accordionNativeSlideDown(el.accordionNativeContent); // class名がactive（＝閉じていた）なら定義した開く関数を実行
+          } else {
+            accordionNativeSlideUp(el.accordionNativeContent); // class名にactiveがない（＝開いていた）なら定義した閉じる関数を実行
+          }
+
+          accordionBtns.forEach(function (accordionBtn, index) {
+            if (el.accordionNativeActiveIndex !== index) {
+              accordionBtn.closest('.js-accordion-native-wrap').classList.remove('is-active'); // ボタンの親要素（wrap）からclassを削除
+              accordionBtn.setAttribute('data-aria-expanded', 'false'); // WAI-ARIA対応、開いた状態かどうかを示す
+              el.accordionNativeOpenedContent = accordionBtn.closest('.js-accordion-native-wrap').querySelector('.js-accordion-native-contents'); // ボタンのあるセット内のアコーディオンコンテンツ要素を取得
+              accordionNativeSlideUp(el.accordionNativeOpenedContent); // 現在開いている他のメニューを閉じる関数を実行して閉じる
+            }
+          });
+
+          // スクロール制御のために上位階層のclass名を変える
+          el.accordionNativeContainer = accordion.closest('.js-scroll-control'); // class名がjs-scroll-controlである近傍の要素を取得
+
+          if (!el.accordionNativeIsActive && el.accordionNativeContainer) {
+            el.accordionNativeContainer.classList.remove('is-active'); // classを削除
+          } else if (el.accordionNativeContainer !== null) {
+            el.accordionNativeContainer.classList.add('is-active'); // classを付与
+          }
+        });
+      });
+    });
+  };
+
+  // アコーディオン要素を表示する関数
+  function accordionNativeSlideDown (targetElement) {
+    targetElement.style.height = 'auto'; // 一旦autoにしアコーディオンの開いた高さの状態にする
+    el.slideDownHeight = targetElement.offsetHeight; // 開いた高さの状態にしたアコーディオン要素から高さを取得
+    targetElement.animate({ // 高さ0から取得した高さまでのアニメーション
+      height: [ 0, el.slideDownHeight + 'px' ]
+    }, {
+      duration: 300, // アニメーションの時間
+    });
+    targetElement.style.height = 'auto'; // ブラウザの表示幅を途中で閲覧者が変えた時を考慮してautoに戻す
+    targetElement.setAttribute('aria-hidden', 'false'); // WAI-ARIA対応、閉じた状態であることを支援技術に伝える
+  };
+
+  // アコーディオン要素を非表示にする関数
+  function accordionNativeSlideUp (targetElement) {
+    el.slideUpHeight = targetElement.offsetHeight; // アコーディオン要素から高さを取得
+    targetElement.style.height = el.slideUpHeight + 'px'; // 開いた状態の高さを指定
+    targetElement.animate({ // 取得した高さから高さ0までのアニメーション
+      height: [ el.slideUpHeight + 'px', 0]
+    }, {
+      duration: 300, // アニメーションの時間
+    });
+    targetElement.style.height = 0; // 閉じた状態の高さを指定
+    targetElement.setAttribute('aria-hidden', 'true'); // WAI-ARIA対応、開いた状態であることを支援技術に伝える
+  };
+}());
+</script>
+
+</body>
+</html>
